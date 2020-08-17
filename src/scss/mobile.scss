@@ -1,0 +1,89 @@
+@include mediaMd {
+  body {
+    overflow-x: hidden;
+  }
+  .nav {
+    .nav_list {
+      position: absolute;
+      right: 0;
+      height: 100vh;
+      top: 8vh;
+      background-color: $dark;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      transform: translateX(130%);
+      .nav_list-item {
+        opacity: 0;
+      }
+    }
+    .hamburger {
+      display: block !important;
+    }
+  }
+}
+
+// @include mediaSm {
+//   .main {
+//     display: grid;
+//     grid-template-columns: $grid;
+
+//     justify-items: start;
+//     padding-left: 0;
+//     padding-right: 0;
+//     & > * {
+//       grid-column: 2/4;
+//     }
+//   }
+//   .main-bg {
+//     background-position: left bottom;
+//   }
+// }
+// @include mediaMd {
+//   header {
+//     display: grid;
+//     grid-template-columns: $grid;
+//     align-items: center;
+//   }
+//   .logo,
+//   .nav,
+//   .weather {
+//     grid-row: 1;
+//     margin: 0em;
+//   }
+//   .logo {
+//     // grid-column: 2;
+//   }
+
+//   .nav {
+//     grid-column: 2 /5;
+//     justify-self: end;
+//   }
+//   .weather {
+//     grid-column: -2/-1;
+//     justify-self: end;
+//   }
+// }
+// @include mediaLg {
+//   .main-bg {
+//     background-position: center right;
+//   }
+//   .nav {
+//     max-width: 30rem;
+//     margin: 0 auto;
+//     .nav_list-item {
+//       margin: 0 1.5em;
+//     }
+//   }
+//   .weather {
+//     width: max-content;
+//     margin: 0.5em auto -3em;
+//     position: relative;
+//     z-index: 1;
+//     .weather_info {
+//       display: block;
+//       margin-left: 1em;
+//     }
+//   }
+// }

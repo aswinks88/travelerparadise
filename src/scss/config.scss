@@ -1,0 +1,29 @@
+$primary: #f70058;
+$dark: #131a2f;
+$light: #fff;
+$fntnormal: 400;
+$fntbold: 700;
+$fntblack: 900;
+$grid: minmax(1em, 10%) minmax(10rem, 22ch) minmax(10rem, 23ch) minmax(1em, 3fr)
+  max-content;
+
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) and (max-width: 3000px) {
+    @content;
+  }
+}
