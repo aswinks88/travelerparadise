@@ -1,41 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../img/logo.png";
 export default function Header() {
+  const [showMenu, setMenu] = useState(false);
+  const [classes, setClasses] = useState({
+    navbarLinks: "",
+    close: "",
+  });
+  const toggleHamburger = () => {
+    console.log(1);
+    if (!showMenu) {
+      setClasses({
+        navbarLinks: "active",
+        close: "closeham",
+      });
+      setMenu(true);
+    } else {
+      setClasses({
+        navbarLinks: "",
+        close: "",
+      });
+      setMenu(false);
+    }
+    // const burger = document.querySelector(".hamburger");
+    // const nav = document.querySelector(".navbar-links");
+    // // const navLinks = document.querySelectorAll(".nav_list-item");
+    // burger.addEventListener("click", () => {
+    //   nav.classList.toggle("active");
+    //   console.log("clicked");
+    //   //   navLinks.forEach((link, index) => {
+    //   //     link.style.animation = `navLink 0.5s ease forwards ${index / 7 + 2}s`;
+    //   //   });
+    // });
+  };
+
   return (
     <header>
-      <nav className="nav">
+      <div className={`hamburger ${classes.close}`} onClick={toggleHamburger}>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
+      <nav className="menu">
         <div className="logo">
-          <img
-            src={logo}
-            width="120px"
-            height="120px"
-            alt="logo"
-            className="logo"
-          />
+          <img src={logo} width="120px" height="120px" alt="logo" />
         </div>
-        <ul className="nav_list">
-          <li className="nav_list-item">
-            <a href="/" className="nav__link">
-              Home
-            </a>
-          </li>
-          <li className="nav_list-item">
-            <a href="/about" className="nav__link">
-              About
-            </a>
-          </li>
-          <li className="nav_list-item">
-            <a href="/github" className="nav__link">
-              Check this project on GitHub <i class="fab fa-github"></i>
-            </a>
-          </li>
-        </ul>
-        <div className="hamburger">
-          <div className="line1"></div>
-          <div className="line2"></div>
-          <div className="line3"></div>
+        <div className={`navbar-links ${classes.navbarLinks}`}>
+          <ul className="nav_list">
+            <li className="nav_list-item">
+              <a href="/" className="nav__link">
+                Home
+              </a>
+            </li>
+            <li className="nav_list-item">
+              <a href="/about" className="nav__link">
+                About
+              </a>
+            </li>
+            <li className="nav_list-item">
+              <a href="/github" className="nav__link">
+                Check this project on GitHub <i className="fab fa-github"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </nav>
+
       {/* <div className="weather">
         <div className="weather__icon">
           <i class="fas fa-cloud"></i>

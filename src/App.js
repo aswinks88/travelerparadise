@@ -7,11 +7,13 @@ import "@fortawesome/fontawesome-free/css/solid.css";
 import Header from "./component/Header";
 import "./css/main.css";
 import Home from "./pages/Home";
+import Footer from "./component/Footer";
 function App() {
   return (
     <div>
       <Header />
       <Home />
+      <Footer />
     </div>
   );
 }

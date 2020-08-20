@@ -1,23 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,200&display=swap");
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden; }
-  .nav .nav_list {
-    position: absolute;
-    right: 0;
-    height: 100vh;
-    top: 8vh;
-    background-color: #131a2f;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    transform: translateX(130%); }
-    .nav .nav_list .nav_list-item {
-      opacity: 0; }
-  .nav .hamburger {
-    display: block !important; } }
-
 *,
 *::before,
 *::after {
@@ -26,6 +7,7 @@
 body {
   height: 100vh;
   margin: 0;
+  padding: 0;
   font-family: "Roboto Mono", monospace;
   font-size: 1.125rem;
   color: #131a2f;
@@ -43,54 +25,128 @@ ul {
   list-style: none; }
 
 header {
-  position: fixed;
+  position: sticky;
   background-color: #131a2f;
   width: 100%;
-  max-width: 80%;
   top: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
   text-align: center;
-  margin-top: 50px; }
-
-.main {
-  background-image: url("../img/queenstown.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
   justify-content: center; }
 
-.nav {
+footer {
+  background-color: #131a2f;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  padding: 50px; }
+  footer .footercontent {
+    color: white; }
+
+.menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%; }
-  .nav .logo {
-    justify-self: start; }
-  .nav .nav_list {
-    display: flex;
-    justify-content: space-around;
-    margin: 0;
-    list-style: none;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px; }
-    .nav .nav_list .nav_list-item .nav__link {
-      text-decoration: none;
-      color: #fff;
-      padding: 15px; }
-      .nav .nav_list .nav_list-item .nav__link i {
-        font-size: 20px; }
-      .nav .nav_list .nav_list-item .nav__link:hover {
-        background-color: #f70058;
-        color: #fff; }
-  .nav .hamburger {
-    display: none; }
-  .nav .hamburger div {
-    width: 25px;
+  transition: all 0.5s ease-in; }
+  .menu.logo {
+    justify-content: center;
+    position: fixed;
+    float: left; }
+  .menu .navbar-links {
+    transition: all 0.5s ease-in;
+    -webkit-transition: all 0.3s ease 0.15s;
+    -moz-transition: all 0.3s ease 0.15s;
+    -o-transition: all 0.3s ease 0.15s;
+    -ms-transition: all 0.3s ease 0.15s;
+    transition: all 0.3s ease 0.15s; }
+    .menu .navbar-links ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      transition: all 0.5s ease-in; }
+      .menu .navbar-links ul a {
+        text-decoration: none;
+        color: #fff;
+        padding: 1rem;
+        display: block; }
+        .menu .navbar-links ul a:hover {
+          background-color: #f70058; }
+
+.hamburger {
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  transition: all 0.5s ease-in; }
+  .hamburger .line {
     height: 3px;
+    width: 100%;
     background-color: #fff;
+    border-radius: 10px;
     margin: 5px;
-    cursor: pointer; }
+    transition: all 0.5s ease-in; }
+
+.main {
+  display: grid;
+  margin: 0 auto;
+  grid-gap: 20px; }
+  .main .main-bg {
+    background: url("../img/queenstown.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, 1fr);
+    height: 70vh; }
+    .main .main-bg .main-content {
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto; }
+      .main .main-bg .main-content .main-title h1 {
+        color: white; }
+      .main .main-bg .main-content .intro p {
+        color: white; }
+    .main .main-bg .searchbox {
+      justify-self: center;
+      align-items: center;
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, 1fr);
+      margin-bottom: 30px; }
+      .main .main-bg .searchbox .search-title {
+        justify-self: center;
+        padding-bottom: 30px; }
+        .main .main-bg .searchbox .search-title h3 {
+          color: #fff; }
+      .main .main-bg .searchbox .search-field {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        padding-bottom: 25px; }
+        .main .main-bg .searchbox .search-field label {
+          color: #fff; }
+      .main .main-bg .searchbox .search {
+        border: 2px solid #70788d;
+        padding: 10px; }
+        .main .main-bg .searchbox .search:hover, .main .main-bg .searchbox .search:focus {
+          border: 2px solid #f70058 !important; }
+      .main .main-bg .searchbox .btn {
+        border: 2px solid #f70058;
+        color: #fff;
+        background-color: #f70058;
+        transition: 0.5s ease-out;
+        margin: 0 auto; }
+      .main .main-bg .searchbox .btn-search:hover {
+        border: 2px solid #131a2f;
+        color: #fff;
+        padding-left: 25px;
+        padding-right: 25px;
+        transition: 0.5s ease-out; }
+    .main .main-bg .links {
+      justify-self: center; }
