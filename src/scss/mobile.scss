@@ -1,150 +1,5 @@
+@import "config.scss";
 @include mediaSm {
-  .main {
-    .main-bg {
-      .main-title {
-        padding: 0;
-        h1 {
-          font-size: 25px;
-        }
-      }
-      .intro {
-        p {
-          font-size: 15px;
-        }
-      }
-      .searchbox {
-        // display: grid;
-        grid-template-rows: 1fr;
-        .search-title {
-          text-align: center;
-          h3 {
-            font-size: 25px;
-          }
-        }
-      }
-    }
-    .destination {
-      display: grid;
-
-      .listheading {
-        text-align: center;
-        margin: 0;
-        h1 {
-          font-size: 25px;
-        }
-      }
-      .destinationcard {
-        display: grid;
-        grid-template-columns: auto;
-        grid-auto-rows: 200px;
-
-        // grid-gap: 10px;
-        // margin-left: 5px;
-        // margin-right: 5px;
-        // .placecard {
-        //   // background-color: $dark;
-        //   background: url("../img/milford.jpg") no-repeat center;
-        // }
-      }
-    }
-    .recentlysearch {
-      display: grid;
-      .listheading {
-        text-align: center;
-        margin: 0;
-        h1 {
-          font-size: 25px;
-        }
-        p {
-          font-size: 15px;
-        }
-      }
-      .recentcard {
-        display: grid;
-        margin-left: 5px;
-        margin-right: 5px;
-        grid-template-columns: auto;
-        grid-auto-rows: 200px;
-        grid-gap: 10px;
-        .recentcardlist {
-          background: url("../img/wellington.jpg") center center no-repeat;
-          background-size: cover;
-        }
-      }
-    }
-    .recentcomments {
-      display: grid;
-      .commentheading {
-        text-align: center;
-        h1 {
-          font-size: 25px;
-        }
-        p {
-          font-size: 15px;
-        }
-      }
-      .commentsection {
-        display: grid;
-        // grid-auto-rows: 200px;
-        // .placeimage {
-        //   //       // grid-area: placeimage;
-        //   background: url("../img/milford.jpg") no-repeat center center;
-        //   background-size: cover;
-        // }
-        .commentlist {
-          display: grid;
-          grid-auto-rows: auto;
-          margin-left: 5px;
-          margin-right: 5px;
-          grid-gap: 20px;
-          .comments {
-            justify-content: start;
-            background-color: rgb(223, 223, 223);
-            .profileimg {
-              width: 60px;
-              height: 60px;
-              border-radius: 50px;
-              background: url("../img/avatar.png") no-repeat center;
-              background-size: cover;
-              float: left;
-              margin: 12px 5px;
-            }
-            .info {
-              text-align: justify;
-              margin: 5px 5px 0 5px;
-              width: 75%;
-              float: right;
-              h5,
-              p {
-                font-size: 15px;
-              }
-            }
-          }
-        }
-      }
-    }
-    .recommendation {
-      display: grid;
-      height: 100vh;
-      .commentheading {
-        text-align: center;
-        h1 {
-          font-size: 25px;
-        }
-      }
-      .recommendplaces {
-        display: grid;
-        grid-auto-rows: 200px;
-        margin-left: 5px;
-        margin-right: 5px;
-        grid-gap: 20px;
-        .recommendlist {
-          background: url("../img/queenstown.jpg") center no-repeat;
-          background-size: 50rem;
-        }
-      }
-    }
-  }
   .menu {
     flex-direction: column;
     align-items: flex-start;
@@ -202,27 +57,40 @@
       }
     }
   }
-}
-@include mediaMd {
-  .destination {
-    display: grid;
-    .listheading {
-      text-align: center;
-      margin: 0;
-      h1 {
-        font-size: 25px;
-      }
-      p {
-        font-size: 15px;
-      }
+  .populardestination {
+    h1 {
+      font-size: 25px;
+      // color: burlywood;
     }
-    .destinationcard {
+    .box {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: 200px;
-      grid-gap: 10px;
+      grid-template-rows: repeat(4, 1fr) !important;
+      .box1 {
+        background-color: yellow !important;
+        grid-column: 1/4 !important;
+        grid-row: 1 !important;
+      }
+      .box2 {
+        grid-column: 1/4 !important;
+        grid-row: 2 !important;
+      }
+      .box3 {
+        grid-column: 1/4 !important;
+        grid-row: 3 !important;
+      }
+      .box4 {
+        grid-column: 1/4 !important;
+        grid-row: 4 !important;
+      }
     }
   }
+  .hikers {
+    border: 2px solid rgb(121, 122, 73);
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 300px;
+  }
+}
+@include mediaMd {
   .menu {
     flex-direction: column;
     align-items: flex-start;
@@ -278,24 +146,16 @@
       }
     }
   }
-}
-@include mediaLg {
-  .destination {
-    display: grid;
-    .destinationcard {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-auto-rows: 200px;
-      grid-gap: 10px;
+  .funactivities {
+    grid-template-columns: 1fr !important;
+    .activitiesimg1 {
+      grid-column: 1/2 !important;
+      grid-row: 2 !important;
     }
   }
+}
+@include mediaLg {
 }
 
 @include mediaXl {
-  .destination {
-    display: grid;
-    .destinationcard {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
 }
