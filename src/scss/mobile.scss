@@ -146,6 +146,9 @@
       }
     }
   }
+  .searchbox input {
+    width: 85% !important;
+  }
   .funactivities {
     grid-template-columns: 1fr !important;
     .activitiesimg1 {

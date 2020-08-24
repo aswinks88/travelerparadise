@@ -1,22 +1,87 @@
-import React from "react";
-import bg from "../img/queenstown.jpg";
-import well from "../img/wellington.jpg";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 export default function Home() {
+  const [latlong, setLatlong] = useState("");
+  const [searchQuery, setQuery] = useState({
+    search: "",
+  });
+  const [searchData, setData] = useState([]);
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition((res) => {
+      setLatlong(res.coords.latitude + "," + res.coords.longitude);
+      console.log(latlong);
+    });
+  };
+  useEffect(() => {
+    getLocation();
+  });
+  const onChange = (e) => {
+    setQuery({ [e.target.name]: e.target.value });
+  };
+  const searchAttractions = (e) => {
+    e.preventDefault();
+    const data = {
+      ll: latlong,
+      query: searchQuery,
+    };
+    axios
+      .post("http://localhost:5000/", data)
+      .then((res) => {
+        // res.data.map((data, index) => {
+        //   setData({
+        //     ...searchData,
+        //     id: data.venue.id,
+        //     name: data.venue.name,
+        //     location: data.venue.location,
+        //   });
+        // });
+        // console.log(searchData);
+        setData(res.data);
+        console.log(searchData);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
   return (
     <div className="main">
       <section className="welcome">
         <div className="welcome-middle">
           <h1>Discover your next adventure</h1>
         </div>
-        <div className="searchbox">
-          <input
-            className="search"
-            type="text"
-            placeholder="eg: queenstown, tongariro etc..."
-          />
-        </div>
-        <div className="btn-search">
-          <a href="#search">Search</a>
+        <form className="formsearch" onSubmit={searchAttractions}>
+          <div className="searchbox">
+            <input
+              className="search"
+              type="text"
+              name="search"
+              onChange={onChange}
+              placeholder="eg: queenstown, tongariro etc..."
+            />
+          </div>
+          <div className="btn-search">
+            <button type="submit">Search</button>
+            {/* <a href="#search">Search</a> */}
+          </div>
+        </form>
+      </section>
+      <section>
+        <div className="results">
+          <p>Results</p>
+          <ul>
+            {searchData.map((data, index) => {
+              return (
+                <li key={data.venue.id}>
+                  <h3>
+                    {index}. &nbsp;
+                    {data.venue.name}
+                  </h3>
+                  <h6>{data.venue.location.formattedAddress}</h6>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
       <section className="populardestination">
@@ -54,7 +119,7 @@ export default function Home() {
               wines. On the other hand, South Island is a land with glaciers,
               lakes with beautiful backdrops and Aoraki mountains, New Zealand
               highest mountain. Over all, its a place that never disappoints
-              enyone who seek an adeventure.
+              anyone who seek an adeventure.
             </p>
           </div>
           <div className="activitiesimg1"></div>

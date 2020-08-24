@@ -102,6 +102,8 @@
       .hamburger.closeham .line:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -5px);
         transition: all 0.5s ease-in; }
+  .searchbox input {
+    width: 85% !important; }
   .funactivities {
     grid-template-columns: 1fr !important; }
     .funactivities .activitiesimg1 {
@@ -471,6 +473,10 @@ footer {
     margin: 5px;
     transition: all 0.5s ease-in; }
 
+.results {
+  justify-content: center;
+  text-align: center; }
+
 .welcome {
   align-items: center;
   justify-content: center;
@@ -483,25 +489,29 @@ footer {
     text-align: center; }
     .welcome .welcome-middle h1 {
       font-size: 50px; }
-  .welcome .searchbox {
-    margin: 25px;
+  .welcome .formsearch {
     width: 100%;
-    justify-items: center;
-    text-align: center;
-    height: 100px; }
-    .welcome .searchbox input {
-      padding: 15px;
-      width: 50%;
-      border-color: #131a2f; }
-  .welcome .btn-search {
-    background-color: #f70058;
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid #131a2f;
-    width: 150px;
-    text-align: center;
-    margin: 25px; }
-    .welcome .btn-search a {
+    align-items: center;
+    justify-content: center; }
+    .welcome .formsearch .searchbox {
+      width: 100%;
+      justify-items: center;
+      text-align: center;
+      height: 100px; }
+      .welcome .formsearch .searchbox input {
+        padding: 15px;
+        width: 50%;
+        border-color: #131a2f; }
+    .welcome .formsearch .btn-search {
+      text-align: center; }
+    .welcome .formsearch .btn-search button {
+      background-color: #f70058;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #131a2f;
+      width: 150px;
+      text-align: center;
+      margin: 25px;
       color: #fff;
       text-decoration: none; }
 
@@ -564,7 +574,7 @@ footer {
       background: url("../img/hump.jpg") center no-repeat;
       background-size: cover; }
     .recommended .hikers .destinationimg6 {
-      background: url("../img/glenorchy.jpg") center no-repeat;
+      background: url("../img/glenorchy.jpg") center center no-repeat;
       background-size: cover; }
     .recommended .hikers .destinationimg7 {
       background: url("../img/taupo.jpg") center no-repeat;
@@ -577,10 +587,8 @@ footer {
   justify-content: center;
   text-align: center;
   max-width: 80rem;
-  margin: 0 auto;
-  height: 100%;
-  margin-left: 20px;
-  margin-bottom: 100px; }
+  margin: 0 auto 100px;
+  height: 100%; }
   .activities .funactivities {
     display: grid;
     grid-template-columns: 1fr 1fr;

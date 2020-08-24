@@ -1,20 +1,23 @@
 const router = require("express").Router();
-const Amadeus = require("amadeus");
-router.route("/").get(async (req, res) => {
-  const amadeus = new Amadeus({
-    clientId: "ltanYY3jNBpL1ywqrvhVC2im3ofxPJA9",
-    clientSecret: "50RFG8yklo7hbJbH",
-  });
-  amadeus.shopping.flightDestinations
-    .get({
-      origin: "PAR",
-      maxPrice: 200,
+const axios = require("axios");
+
+router.route("/").post(async (req, res) => {
+  await axios
+    .get(`https://api.foursquare.com/v2/venues/explore`, {
+      params: {
+        client_id: process.env.FSQ_CLIENT_ID,
+        client_secret: process.env.FSQ_CLIENT_SECRET,
+        ll: req.body.ll,
+        query: req.body.query.search,
+        v: "20202408",
+        limit: 15,
+      },
     })
-    .then(function (response) {
-      res.json(JSON.stringify(response));
+    .then((response) => {
+      return res.json(response.data.response.groups[0].items);
     })
-    .catch(function (responseError) {
-      res.json(responseError);
+    .catch((err) => {
+      console.log(err.response);
     });
 });
 module.exports = router;
