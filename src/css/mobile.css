@@ -102,7 +102,9 @@
         transform: rotate(-45deg) translate(7px, -5px);
         transition: all 0.5s ease-in; }
   .searchbox input {
-    width: 85% !important; }
+    width: 95% !important; }
+  .wrapper {
+    width: 95% !important; }
   .funactivities {
     grid-template-columns: 1fr !important; }
     .funactivities .activitiesimg1 {

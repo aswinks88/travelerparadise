@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Category from "../component/CategoryComponent";
 export default function Home() {
   const [latlong, setLatlong] = useState("");
   const [searchQuery, setQuery] = useState({
     search: "",
   });
   const [searchData, setData] = useState([]);
+  const [items, setItems] = useState([]);
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((res) => {
       setLatlong(res.coords.latitude + "," + res.coords.longitude);
-      console.log(latlong);
     });
   };
   useEffect(() => {
@@ -18,11 +19,17 @@ export default function Home() {
   const onChange = (e) => {
     setQuery({ [e.target.name]: e.target.value });
   };
+
+  const setOnchangeItem = (dropdownItem) => {
+    console.log(dropdownItem.value);
+    setItems([dropdownItem]);
+  };
   const searchAttractions = (e) => {
     e.preventDefault();
     const data = {
       ll: latlong,
       query: searchQuery,
+      category: items,
     };
     axios
       .post("http://localhost:5000/", data)
@@ -59,10 +66,14 @@ export default function Home() {
               onChange={onChange}
               placeholder="eg: queenstown, tongariro etc..."
             />
+            <Category
+              title="Please select a category"
+              multiSelect
+              onChange={setOnchangeItem}
+            />
           </div>
           <div className="btn-search">
             <button type="submit">Search</button>
-            {/* <a href="#search">Search</a> */}
           </div>
         </form>
       </section>
