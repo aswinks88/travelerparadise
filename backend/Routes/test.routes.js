@@ -2,6 +2,7 @@ const router = require("express").Router();
 const axios = require("axios");
 
 router.route("/").post(async (req, res) => {
+  console.log(req.body.category);
   await axios
     .get(`https://api.foursquare.com/v2/venues/explore`, {
       params: {

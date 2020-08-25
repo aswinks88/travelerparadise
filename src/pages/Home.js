@@ -21,8 +21,26 @@ export default function Home() {
   };
 
   const setOnchangeItem = (dropdownItem) => {
-    console.log(dropdownItem.value);
-    setItems([dropdownItem]);
+    console.log(dropdownItem);
+    // for (let i = 0; i <= items.length; i++) {
+    //   if (dropdownItem === items[i]) {
+    //     console.log(dropdownItem[i]);
+    //   } else {
+    //     console.log(2);
+    //   }
+    // }
+    // console.log(items.filter((value) => value.id !== items.id));
+    // items.map((data, index) => {
+    //   // console.log(data);
+    //   if (data === dropdownItem.value) {
+    //     console.log("item exist");
+    //   } else {
+    //     console.log("not exist");
+    //   }
+    // });
+    // setItems([...items, dropdownItem.f])
+    setItems([...items, dropdownItem]);
+    items.filter((data, index) => console.log(data.id !== items.id));
   };
   const searchAttractions = (e) => {
     e.preventDefault();
@@ -34,15 +52,6 @@ export default function Home() {
     axios
       .post("http://localhost:5000/", data)
       .then((res) => {
-        // res.data.map((data, index) => {
-        //   setData({
-        //     ...searchData,
-        //     id: data.venue.id,
-        //     name: data.venue.name,
-        //     location: data.venue.location,
-        //   });
-        // });
-        // console.log(searchData);
         setData(res.data);
         console.log(searchData);
         console.log(res.data);
@@ -107,14 +116,14 @@ export default function Home() {
       <section className="recommended">
         <h1>For Hikers</h1>
         <div className="hikers">
-          <div className="destinationimg1">image1</div>
-          <div className="destinationimg2">image2</div>
-          <div className="destinationimg3">image3</div>
-          <div className="destinationimg4">image4</div>
-          <div className="destinationimg5">image5</div>
-          <div className="destinationimg6">image6</div>
-          <div className="destinationimg7">image7</div>
-          <div className="destinationimg8">image8</div>
+          <div className="destinationimg1">Franz Josef Glacier</div>
+          <div className="destinationimg2">Mt Taranaki</div>
+          <div className="destinationimg3">Tongariro Crossing </div>
+          <div className="destinationimg4">Hiking At Wanaka</div>
+          <div className="destinationimg5">Hump Ridge Track</div>
+          <div className="destinationimg6">Glenorchy</div>
+          <div className="destinationimg7">Taupo</div>
+          <div className="destinationimg8">Abel Tasman</div>
         </div>
       </section>
       <section className="activities">

@@ -619,28 +619,36 @@ footer {
     margin-bottom: 100px; }
     .recommended .hikers .destinationimg1 {
       background: url("../img/FranzJosefGlacier.jpg") center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
     .recommended .hikers .destinationimg2 {
       background: url("../img/mttaranaki.jpg") center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
     .recommended .hikers .destinationimg3 {
       background: url("../img/tongariro.jpg") center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
     .recommended .hikers .destinationimg4 {
       background: url("../img/wanaka.jpg") center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
     .recommended .hikers .destinationimg5 {
       background: url("../img/hump.jpg") center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
     .recommended .hikers .destinationimg6 {
       background: url("../img/glenorchy.jpg") center center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
     .recommended .hikers .destinationimg7 {
       background: url("../img/taupo.jpg") center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
     .recommended .hikers .destinationimg8 {
       background: url("../img/abeltasman.jpeg") center no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      color: #fff; }
 
 .activities {
   justify-content: center;
