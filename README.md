@@ -2,6 +2,9 @@ Traveler Paradise is a point of interest web application that gives detailed inf
 This app is in the initial development stages. Below you can find the screenshot of the prototype design of the application.
 
 ![Screenshot](/screenshot/tp1.JPG)
+![Screenshot](/screenshot/tp2.JPG)
+![Screenshot](/screenshot/tp3.JPG)
+![Screenshot](/screenshot/tp4.JPG)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
