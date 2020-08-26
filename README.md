@@ -1,11 +1,13 @@
-Traveler Paradise is a point of interest web application that gives detailed information about places around your current location.
+Traveler Paradise is a point of interest web application that gives detailed information about the places and fun activities around your current location.
+
+This project uses Foursquare Places API to search for activities based on the user query and location.
+Frontend Stack - React, HTML and SCSS and backend stack involves node js and and express js.
 This app is in the initial development stages. Below you can find the screenshot of the prototype design of the application.
 
 ![Screenshot](/screenshot/tp1.JPG)
 ![Screenshot](/screenshot/tp2.JPG)
 ![Screenshot](/screenshot/tp3.JPG)
 ![Screenshot](/screenshot/tp4.JPG)
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
