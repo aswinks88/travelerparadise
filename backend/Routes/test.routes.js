@@ -1,19 +1,29 @@
 const router = require("express").Router();
 const axios = require("axios");
-
+let count = 0;
 router.route("/").post(async (req, res) => {
   console.log(req.body.category);
+  if (req.body.category.id === 1) {
+  }
+  // 4d4b7104d754a06370d81259,
+  // 4d4b7105d754a06373d81259,
+  // 4d4b7105d754a06374d81259,
+  // 4d4b7105d754a06377d81259,
+  // 4d4b7105d754a06375d81259,
+  // 4d4b7105d754a06378d81259,
+  // 4d4b7105d754a06379d81259
   await axios
     .get(`https://api.foursquare.com/v2/venues/explore`, {
       params: {
         client_id: process.env.FSQ_CLIENT_ID,
         client_secret: process.env.FSQ_CLIENT_SECRET,
-        // ll: req.body.ll,
+        ll: req.body.ll,
         near: "New Zealand",
         query: req.body.query.search,
-        categoryId: `4d4b7104d754a06370d81259,4d4b7105d754a06373d81259,4d4b7105d754a06374d81259,4d4b7105d754a06377d81259,4d4b7105d754a06375d81259,4d4b7105d754a06378d81259,4d4b7105d754a06379d81259`,
+        categoryId: "4d4b7105d754a06377d81259",
         v: "20202408",
         limit: 50,
+        sortByPopularity: 1,
       },
     })
     .then((response) => {

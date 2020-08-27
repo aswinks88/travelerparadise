@@ -8,6 +8,7 @@ export default function Home() {
   });
   const [searchData, setData] = useState([]);
   const [items, setItems] = useState([]);
+  const itemsArray = [];
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((res) => {
       setLatlong(res.coords.latitude + "," + res.coords.longitude);
@@ -22,26 +23,10 @@ export default function Home() {
 
   const setOnchangeItem = (dropdownItem) => {
     console.log(dropdownItem);
-    // for (let i = 0; i <= items.length; i++) {
-    //   if (dropdownItem === items[i]) {
-    //     console.log(dropdownItem[i]);
-    //   } else {
-    //     console.log(2);
-    //   }
-    // }
-    // console.log(items.filter((value) => value.id !== items.id));
-    // items.map((data, index) => {
-    //   // console.log(data);
-    //   if (data === dropdownItem.value) {
-    //     console.log("item exist");
-    //   } else {
-    //     console.log("not exist");
-    //   }
-    // });
-    // setItems([...items, dropdownItem.f])
-    setItems([...items, dropdownItem]);
-    items.filter((data, index) => console.log(data.id !== items.id));
+    setItems([...dropdownItem]);
+    // console.log(items);
   };
+
   const searchAttractions = (e) => {
     e.preventDefault();
     const data = {

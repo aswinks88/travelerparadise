@@ -7,12 +7,18 @@ import "@fortawesome/fontawesome-free/css/solid.css";
 import Header from "./component/Header";
 import "./css/main.css";
 import Home from "./pages/Home";
+import Search from "./pages/SearchResults";
 import Footer from "./component/Footer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
     <div>
       <Header />
-      <Home />
+      <Router>
+        <Route path="/" exact component={Home} />
+        <Route path="/search" exact component={Search} />
+      </Router>
+
       <Footer />
     </div>
   );

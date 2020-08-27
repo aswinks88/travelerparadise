@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import onClickOutside from "react-onclickoutside";
 
 function CategoryComponent({ title, multiSelect = false, onChange }) {
@@ -41,7 +41,12 @@ function CategoryComponent({ title, multiSelect = false, onChange }) {
   const toggle = () => {
     setOpen(!open);
   };
+
   CategoryComponent.handleClickOutside = () => setOpen(false);
+  useEffect(() => {
+    setSelection(selection);
+    onChange(selection);
+  }, [selection]);
   function dropdownHandler(item) {
     if (!selection.some((current) => current.id === item.id)) {
       if (!multiSelect) {
@@ -54,11 +59,10 @@ function CategoryComponent({ title, multiSelect = false, onChange }) {
       selectionRemoval = selectionRemoval.filter(
         (current) => current.id !== item.id
       );
+      console.log(selectionRemoval);
       setSelection([...selectionRemoval]);
     }
-    onChange(item);
   }
-
   function isItemSelected(item) {
     if (selection.some((current) => current.id === item.id)) {
       return true;

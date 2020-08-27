@@ -650,6 +650,54 @@ footer {
       background-size: cover;
       color: #fff; }
 
+.searchresults {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background: url("../img/abeltasman.jpeg") center no-repeat;
+  background-size: cover;
+  color: #fff; }
+  .searchresults h1 {
+    font-size: 50px; }
+
+.resultheading {
+  text-align: center; }
+  .resultheading .filters {
+    display: inline-flex; }
+
+.searchlist {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 300px;
+  margin: 20px auto;
+  grid-gap: 20px;
+  max-width: 80rem; }
+  .searchlist .description {
+    margin: 1em;
+    text-align: justify; }
+    .searchlist .description h1 {
+      margin: 0; }
+    .searchlist .description p {
+      margin: 10px auto 0; }
+  .searchlist .searchcard1 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: left; }
+    .searchlist .searchcard1 .image {
+      background: url("../img/glenorchy.jpg") center no-repeat;
+      background-size: cover; }
+  .searchlist .searchcard2 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: left; }
+    .searchlist .searchcard2 .image {
+      background: url("../img/hump.jpg") center no-repeat;
+      background-size: cover; }
+
 .activities {
   justify-content: center;
   text-align: center;
