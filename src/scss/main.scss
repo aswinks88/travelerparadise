@@ -9,16 +9,16 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  //   width: 100%;
-  height: 100vh;
-  //   max-width: 2000px;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
   color: $dark;
   line-height: 1.6;
+  position: relative;
 }
 h1,
 h2,
@@ -31,7 +31,10 @@ p {
 ul {
   list-style: none;
 }
-
+.content {
+  position: relative;
+  height: 100%;
+}
 header {
   position: fixed;
   background-color: $dark;
@@ -51,9 +54,11 @@ header {
 footer {
   background-color: $dark;
   width: 100%;
-  bottom: 0;
   text-align: center;
   padding: 50px;
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
   .footercontent {
     color: white;
   }
@@ -363,64 +368,107 @@ footer {
     }
   }
 }
-.searchresults {
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  background: url("../img/abeltasman.jpeg") center no-repeat;
-  background-size: cover;
-  color: $light;
-  h1 {
-    font-size: 50px;
-  }
-}
-.resultheading {
-  text-align: center;
-  .filters {
-    display: inline-flex;
-  }
-}
-.searchlist {
-  display: grid;
-  text-align: center;
-  justify-content: center;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 300px;
-  margin: 20px auto;
-  grid-gap: 20px;
-  max-width: 80rem;
-  .description {
-    margin: 1em;
-    text-align: justify;
-    h1 {
-      margin: 0;
-    }
-    p {
-      margin: 10px auto 0;
-    }
-  }
-  .searchcard1 {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    text-align: left;
+// .searchsection {
+//   position: relative;
+// }
 
-    .image {
-      background: url("../img/glenorchy.jpg") center no-repeat;
-      background-size: cover;
+.searchsection {
+  // position: relative;
+  height: 100%;
+  .searchresults {
+    height: 60vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background: url("../img/abeltasman.jpeg") center no-repeat;
+    background-size: cover;
+    color: $light;
+    h1 {
+      font-size: 50px;
     }
   }
-  .searchcard2 {
+  .resultheading {
+    text-align: center;
+    .filters {
+      margin-top: 15px;
+      display: inline-flex;
+    }
+  }
+  .searchlist {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    text-align: left;
-    .image {
-      background: url("../img/hump.jpg") center no-repeat;
-      background-size: cover;
+    text-align: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    margin: 20px auto;
+    grid-gap: 20px;
+    max-width: 90%;
+    // overflow: hidden;
+    // position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    background-color: $light;
+    padding: 20px;
+    .description {
+      margin: 0.5em;
+      text-align: justify;
+      h6 {
+        margin: 0;
+        font-weight: 600;
+      }
+      p {
+        margin: 8px auto 0;
+        font-size: 15px;
+      }
+    }
+    .searchcard1 {
+      background-color: $light;
+      display: flex;
+      flex-direction: column;
+      // grid-template-columns: auto;
+      // grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+      width: 100%;
+      // height: 15rem;
+      text-align: left;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
+      border-radius: 5px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      .image {
+        width: 100%;
+        height: 100%;
+        .card-image {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          // object-fit: fill;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+      }
+    }
+    .searchcard2 {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+      text-align: left;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
+      border-radius: 5px;
+      .image {
+        border-radius: 5px;
+        background: url("../img/hump.jpg") center no-repeat;
+        background-size: cover;
+      }
     }
   }
 }
+
 .activities {
   justify-content: center;
   text-align: center;

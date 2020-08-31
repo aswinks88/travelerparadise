@@ -12,7 +12,7 @@ import Footer from "./component/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
-    <div>
+    <div className="content">
       <Header />
       <Router>
         <Route path="/" exact component={Home} />

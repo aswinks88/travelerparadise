@@ -387,14 +387,16 @@ template {
 *::after {
   box-sizing: border-box; }
 
+html,
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
   color: #131a2f;
-  line-height: 1.6; }
+  line-height: 1.6;
+  position: relative; }
 
 h1,
 h2,
@@ -406,6 +408,10 @@ p {
 
 ul {
   list-style: none; }
+
+.content {
+  position: relative;
+  height: 100%; }
 
 header {
   position: fixed;
@@ -422,7 +428,6 @@ header {
 footer {
   background-color: #131a2f;
   width: 100%;
-  bottom: 0;
   text-align: center;
   padding: 50px; }
   footer .footercontent {
@@ -650,53 +655,80 @@ footer {
       background-size: cover;
       color: #fff; }
 
-.searchresults {
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  background: url("../img/abeltasman.jpeg") center no-repeat;
-  background-size: cover;
-  color: #fff; }
-  .searchresults h1 {
-    font-size: 50px; }
-
-.resultheading {
-  text-align: center; }
-  .resultheading .filters {
-    display: inline-flex; }
-
-.searchlist {
-  display: grid;
-  text-align: center;
-  justify-content: center;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 300px;
-  margin: 20px auto;
-  grid-gap: 20px;
-  max-width: 80rem; }
-  .searchlist .description {
-    margin: 1em;
-    text-align: justify; }
-    .searchlist .description h1 {
-      margin: 0; }
-    .searchlist .description p {
-      margin: 10px auto 0; }
-  .searchlist .searchcard1 {
+.searchsection {
+  height: 100%; }
+  .searchsection .searchresults {
+    height: 60vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background: url("../img/abeltasman.jpeg") center no-repeat;
+    background-size: cover;
+    color: #fff; }
+    .searchsection .searchresults h1 {
+      font-size: 50px; }
+  .searchsection .resultheading {
+    text-align: center; }
+    .searchsection .resultheading .filters {
+      margin-top: 15px;
+      display: inline-flex; }
+  .searchsection .searchlist {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    text-align: left; }
-    .searchlist .searchcard1 .image {
-      background: url("../img/glenorchy.jpg") center no-repeat;
-      background-size: cover; }
-  .searchlist .searchcard2 {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    text-align: left; }
-    .searchlist .searchcard2 .image {
-      background: url("../img/hump.jpg") center no-repeat;
-      background-size: cover; }
+    text-align: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    margin: 20px auto;
+    grid-gap: 20px;
+    max-width: 90%;
+    top: 60%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 20px; }
+    .searchsection .searchlist .description {
+      margin: 0.5em;
+      text-align: justify; }
+      .searchsection .searchlist .description h6 {
+        margin: 0;
+        font-weight: 600; }
+      .searchsection .searchlist .description p {
+        margin: 8px auto 0;
+        font-size: 15px; }
+    .searchsection .searchlist .searchcard1 {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      text-align: left;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
+      border-radius: 5px;
+      overflow-x: hidden;
+      overflow-y: hidden; }
+      .searchsection .searchlist .searchcard1 .image {
+        width: 100%;
+        height: 100%; }
+        .searchsection .searchlist .searchcard1 .image .card-image {
+          width: 100%;
+          height: 100%;
+          position: relative; }
+        .searchsection .searchlist .searchcard1 .image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 50%; }
+    .searchsection .searchlist .searchcard2 {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+      text-align: left;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
+      border-radius: 5px; }
+      .searchsection .searchlist .searchcard2 .image {
+        border-radius: 5px;
+        background: url("../img/hump.jpg") center no-repeat;
+        background-size: cover; }
 
 .activities {
   justify-content: center;

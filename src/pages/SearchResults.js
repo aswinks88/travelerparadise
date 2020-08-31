@@ -1,13 +1,14 @@
 import React from "react";
-
-export default function SearchResults() {
+import SearchList from "../component/SearchList";
+export default function SearchResults(props) {
+  console.log(props.history.location.state.data);
   return (
-    <div>
+    <div className="searchsection">
       <section className="searchresults">
         <h1>SEARCH RESULTS</h1>
       </section>
       <section className="resultheading">
-        <h1>Top results</h1>
+        {/* <h1>Top results</h1> */}
         <div className="filters">
           <div className="sortby">Sortby: &nbsp;</div>
           <select className="sortorder">
@@ -17,58 +18,17 @@ export default function SearchResults() {
         </div>
       </section>
       <section className="searchlist">
-        <div className="searchcard1">
-          <div className="image"></div>
-          <div className="description">
-            <h1>Place Name</h1>
-            <p>
-              Glenorchy is a small settlement at the northern end of Lake
-              Wakatipu in the South Island region of Otago, New Zealand. It is
-              approximately 45 km by road or boat from Queenstown, the nearest
-              large town.
-            </p>
-            <a href="#link">Relevant Link</a>
-          </div>
-        </div>
-        <div className="searchcard2">
-          <div className="image"></div>
-          <div className="description">
-            <h1>Place Name</h1>
-            <p>
-              Glenorchy is a small settlement at the northern end of Lake
-              Wakatipu in the South Island region of Otago, New Zealand. It is
-              approximately 45 km by road or boat from Queenstown, the nearest
-              large town.
-            </p>
-            <a href="#link">Relevant Link</a>
-          </div>
-        </div>
-        <div className="searchcard2">
-          <div className="image"></div>
-          <div className="description">
-            <h1>Place Name</h1>
-            <p>
-              Glenorchy is a small settlement at the northern end of Lake
-              Wakatipu in the South Island region of Otago, New Zealand. It is
-              approximately 45 km by road or boat from Queenstown, the nearest
-              large town.
-            </p>
-            <a href="#link">Relevant Link</a>
-          </div>
-        </div>
-        <div className="searchcard2">
-          <div className="image"></div>
-          <div className="description">
-            <h1>Place Name</h1>
-            <p>
-              Glenorchy is a small settlement at the northern end of Lake
-              Wakatipu in the South Island region of Otago, New Zealand. It is
-              approximately 45 km by road or boat from Queenstown, the nearest
-              large town.
-            </p>
-            <a href="#link">Relevant Link</a>
-          </div>
-        </div>
+        {props.history.location.state.data.map((data, index) => {
+          return (
+            <SearchList
+              name={data.name}
+              address={data.address}
+              tags={data.tags}
+              status={data.status}
+              photoUrl={data.photoUrl}
+            />
+          );
+        })}
       </section>
     </div>
   );

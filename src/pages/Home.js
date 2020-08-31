@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Category from "../component/CategoryComponent";
+// import axios from "axios";
+// import Category from "../component/CategoryComponent";
+// import { Redirect } from "react-router-dom";
+import SearchForm from "../component/SearchForm";
 export default function Home() {
   const [latlong, setLatlong] = useState("");
-  const [searchQuery, setQuery] = useState({
-    search: "",
-  });
-  const [searchData, setData] = useState([]);
-  const [items, setItems] = useState([]);
-  const itemsArray = [];
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((res) => {
       setLatlong(res.coords.latitude + "," + res.coords.longitude);
@@ -17,77 +13,13 @@ export default function Home() {
   useEffect(() => {
     getLocation();
   });
-  const onChange = (e) => {
-    setQuery({ [e.target.name]: e.target.value });
-  };
-
-  const setOnchangeItem = (dropdownItem) => {
-    console.log(dropdownItem);
-    setItems([...dropdownItem]);
-    // console.log(items);
-  };
-
-  const searchAttractions = (e) => {
-    e.preventDefault();
-    const data = {
-      ll: latlong,
-      query: searchQuery,
-      category: items,
-    };
-    axios
-      .post("http://localhost:5000/", data)
-      .then((res) => {
-        setData(res.data);
-        console.log(searchData);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
   return (
     <div className="main">
       <section className="welcome">
         <div className="welcome-middle">
           <h1>Discover your next adventure</h1>
         </div>
-        <form className="formsearch" onSubmit={searchAttractions}>
-          <div className="searchbox">
-            <input
-              className="search"
-              type="text"
-              name="search"
-              onChange={onChange}
-              placeholder="eg: queenstown, tongariro etc..."
-            />
-            <Category
-              title="Please select a category"
-              multiSelect
-              onChange={setOnchangeItem}
-            />
-          </div>
-          <div className="btn-search">
-            <button type="submit">Search</button>
-          </div>
-        </form>
-      </section>
-      <section>
-        <div className="results">
-          <p>Results</p>
-          <ul>
-            {searchData.map((data, index) => {
-              return (
-                <li key={data.venue.id}>
-                  <h3>
-                    {index}. &nbsp;
-                    {data.venue.name}
-                  </h3>
-                  <h6>{data.venue.location.formattedAddress}</h6>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <SearchForm location={latlong} />
       </section>
       <section className="populardestination">
         <h1>Popular Destination</h1>
