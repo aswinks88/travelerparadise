@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SearchList from "../component/SearchList";
+import axios from "axios";
+import GOOGLE_KEY from "../keys";
 export default function SearchResults(props) {
   console.log(props.history.location.state.data);
+
   return (
     <div className="searchsection">
       <section className="searchresults">
@@ -26,6 +29,7 @@ export default function SearchResults(props) {
               tags={data.tags}
               status={data.status}
               photoUrl={data.photoUrl}
+              placeId={data.placeId}
             />
           );
         })}

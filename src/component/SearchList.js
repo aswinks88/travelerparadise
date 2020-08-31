@@ -1,6 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import images from "../img/glenorchy.jpg";
 function SearchList(props) {
+  const [placeId, setPlaceId] = useState([]);
+  console.log(props.placeId);
+  const FetchIndividualPlaceDetails = () => {
+    axios
+      .get(`http://localhost:5000/placedetails`, {
+        params: {
+          placeid: props.placeId,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
+  useEffect(() => {
+    FetchIndividualPlaceDetails();
+    //   props.history.location.state.data.map((data) => {
+    // console.log(data.placeId);
+    // setPlaceId(data.placeId);
+    // axios
+    //   .get(`http://localhost:5000/placedetails`, {
+    //     params: {
+    //       placeid: placeId,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //   });
+    //   });
+  });
   return (
     <div className="searchcard1">
       <div className="image">

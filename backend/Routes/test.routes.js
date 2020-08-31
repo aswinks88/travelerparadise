@@ -1,46 +1,22 @@
 const router = require("express").Router();
 const axios = require("axios");
-const Amadeus = require("amadeus");
-const { json } = require("body-parser");
-const { data } = require("jquery");
-let count = 0;
+const data = [];
 router.route("/").post(async (req, res) => {
   console.log(req.body.category);
-  // query=tongariro&key=AIzaSyDF383sJqvwvvPP4rcTStAXJtWmh7oAW6g
-  const GooglePhotoApiURL =
-    "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
-  const imageURL = [];
-  const data = [
-    // {
-    //   name: "",
-    //   photoUrl: "",
-    //   address: "",
-    //   location: "",
-    //   status: "",
-    //   tags: [],
-    //   rating: "",
-    //   placeId: "",
-    // },
-  ];
+
   axios
     .get("https://maps.googleapis.com/maps/api/place/textsearch/json", {
       params: {
         query: req.body.query.search,
         key: process.env.GOOGLE_PLACE_API_KEY,
+
         // location: req.body.ll,
       },
     })
     .then((response) => {
-      // response.data.results.map((data, index) => {
-      //   console.log(data.photos[0].photo_reference, index);
-      // imageURL.push(
-      //   `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${data.photos.photo_reference}&key=${process.env.GOOGLE_PLACE_API_KEY}`
-      // );
-      // });
       for (let i = 0; i < response.data.results.length; i++) {
         if (!response.data.results[i].hasOwnProperty("photos")) {
           console.log(response.data.results[i].name);
-          // imageURL.push("Image not available");
           data.push({
             name: response.data.results[i].name,
             photoUrl: "N/A",
@@ -52,10 +28,6 @@ router.route("/").post(async (req, res) => {
             placeId: response.data.results[i].place_id,
           });
         } else {
-          // console.log(response.data.results[i].photos[0].photo_reference);
-          // imageURL.push(
-          //   `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=${response.data.results[i].photos[0].photo_reference}&key=${process.env.GOOGLE_PLACE_API_KEY}`
-          // );
           data.push({
             name: response.data.results[i].name,
             photoUrl: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=${response.data.results[i].photos[0].photo_reference}&key=${process.env.GOOGLE_PLACE_API_KEY}`,
@@ -68,13 +40,20 @@ router.route("/").post(async (req, res) => {
           });
         }
       }
-
       res.send(data);
-      // console.log(data);
     });
-  // .then((placeDetailsRes) => {
-  //   axios
-  // });
+});
+
+router.route("/placedetails").get(async (req, res) => {
+  console.log(1, req.body.placeid);
+
+  axios
+    .get(
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=name,rating,formatted_phone_number&key=${process.env.GOOGLE_PLACE_API_KEY}`
+    )
+    .then((response) => {
+      console.log(response.data);
+    });
 });
 module.exports = router;
 
