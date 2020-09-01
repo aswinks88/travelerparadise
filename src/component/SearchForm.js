@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Category from "../component/CategoryComponent";
 import { Redirect } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 function SearchForm(props) {
   const [searchQuery, setQuery] = useState({
     search: "",
@@ -9,7 +10,7 @@ function SearchForm(props) {
   const [searchData, setData] = useState([]);
   const [items, setItems] = useState([]);
   const [submit, setSubmit] = useState(false);
-
+  const [isLoading, setLoading] = useState(false);
   const onChange = (e) => {
     setQuery({ [e.target.name]: e.target.value });
   };
@@ -31,6 +32,7 @@ function SearchForm(props) {
         setData(res.data);
         setSubmit(true);
       })
+      .then(setLoading(true))
       .catch((err) => {
         console.log(err.response);
       });
@@ -52,7 +54,22 @@ function SearchForm(props) {
         />
       </div>
       <div className="btn-search">
-        <button type="submit">Search</button>
+        {!isLoading ? (
+          <button disabled={isLoading} type="submit">
+            Search
+          </button>
+        ) : (
+          <button>
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            <span className="sr-only">Loading...</span>
+          </button>
+        )}
       </div>
       {submit ? (
         <Redirect to={{ pathname: "/search", state: { data: searchData } }} />

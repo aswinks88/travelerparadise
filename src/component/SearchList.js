@@ -36,7 +36,7 @@ function SearchList(props) {
           </p>
         </div>
         <div>
-          <a href={props.place_details.url}>Maps</a>
+          <a href={props.place_details.url}>See location in Map</a>
         </div>
         <div>
           <p>

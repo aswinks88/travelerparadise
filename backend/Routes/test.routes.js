@@ -39,7 +39,6 @@ router.route("/").post(async (req, res) => {
           });
         }
       }
-      //
     })
     .then(async () => {
       for (let i = 0; i < data.length; i++) {
@@ -59,10 +58,8 @@ router.route("/").post(async (req, res) => {
       console.log(err.response);
     });
   data.map((value, index) => {
-    // console.log(value);
     return (value["place_details"] = placeDetail[index]);
   });
-  console.log(5, data);
   res.send(data);
 });
 module.exports = router;
