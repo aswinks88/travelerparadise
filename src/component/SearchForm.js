@@ -3,8 +3,6 @@ import axios from "axios";
 import Category from "../component/CategoryComponent";
 import { Redirect } from "react-router-dom";
 function SearchForm(props) {
-  console.log(props.location);
-
   const [searchQuery, setQuery] = useState({
     search: "",
   });
@@ -31,7 +29,6 @@ function SearchForm(props) {
       .post("http://localhost:5000/", data)
       .then((res) => {
         setData(res.data);
-        console.log(res.data);
         setSubmit(true);
       })
       .catch((err) => {

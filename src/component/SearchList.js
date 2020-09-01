@@ -2,35 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import images from "../img/glenorchy.jpg";
 function SearchList(props) {
-  const [placeId, setPlaceId] = useState([]);
-  console.log(props.placeId);
-  const FetchIndividualPlaceDetails = () => {
-    axios
-      .get(`http://localhost:5000/placedetails`, {
-        params: {
-          placeid: props.placeId,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      });
-  };
-  useEffect(() => {
-    FetchIndividualPlaceDetails();
-    //   props.history.location.state.data.map((data) => {
-    // console.log(data.placeId);
-    // setPlaceId(data.placeId);
-    // axios
-    //   .get(`http://localhost:5000/placedetails`, {
-    //     params: {
-    //       placeid: placeId,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //   });
-    //   });
-  });
   return (
     <div className="searchcard1">
       <div className="image">
@@ -50,13 +21,37 @@ function SearchList(props) {
           <h6>{props.name}</h6>
         </div>
         <div>
-          <p>{props.address}</p>
+          <p>
+            {" "}
+            <strong>Address:&nbsp;</strong>
+            {props.address}
+          </p>
         </div>
         <div>
-          <p>{props.status}</p>
+          <p>
+            <strong>PH:</strong>{" "}
+            {props.place_details.hasOwnProperty("formatted_phone_number")
+              ? props.place_details.formatted_phone_number
+              : "N/A"}
+          </p>
         </div>
         <div>
-          <a href="#link">{props.website}</a>
+          <a href={props.place_details.url}>Maps</a>
+        </div>
+        <div>
+          <p>
+            <strong>Status:</strong> {props.status}
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong>Link:</strong>{" "}
+            {props.place_details.website === undefined ? (
+              <a href="#n/a">N/A</a>
+            ) : (
+              <a href={props.place_details.website}>Official Webpage</a>
+            )}
+          </p>
         </div>
       </div>
     </div>
@@ -64,17 +59,3 @@ function SearchList(props) {
 }
 
 export default SearchList;
-{
-  /* <div className="searchcard1">
-      <div className="image">
-        <img src={images} alt="place" />
-      </div>
-      <div className="description">
-        <h6>Trekking</h6>
-        <p>mt roskill</p>
-        <p>Operational</p>
-
-        <a href="#link">some link</a>
-      </div>
-    </div> */
-}
