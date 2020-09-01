@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import ActivitiesList from "../component/ActivitiesListComponent";
 // import axios from "axios";
 // import Category from "../component/CategoryComponent";
 // import { Redirect } from "react-router-dom";
 import SearchForm from "../component/SearchForm";
+import axios from "axios";
 export default function Home() {
   const [latlong, setLatlong] = useState("");
+  const [destination, setDestination] = useState([]);
+  const [hiking, setHiking] = useState([]);
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((res) => {
       setLatlong(res.coords.latitude + "," + res.coords.longitude);
@@ -12,7 +16,26 @@ export default function Home() {
   };
   useEffect(() => {
     getLocation();
-  });
+    console.log(latlong);
+    loadPopularDest();
+    loadHikingPlaces();
+  }, [latlong]);
+  const loadPopularDest = () => {
+    axios
+      .post("http://localhost:5000/nearbyplaces", { ll: latlong })
+      .then((res) => {
+        console.log(res.data);
+        setDestination(res.data);
+      });
+  };
+  const loadHikingPlaces = () => {
+    axios
+      .post("http://localhost:5000/forhikers", { ll: latlong })
+      .then((res) => {
+        console.log(res.data);
+        setHiking(res.data);
+      });
+  };
   return (
     <div className="main">
       <section className="welcome">
@@ -22,25 +45,27 @@ export default function Home() {
         <SearchForm location={latlong} />
       </section>
       <section className="populardestination">
-        <h1>Popular Destination</h1>
+        <h1>Popular Destination Near You</h1>
         <div className="box">
-          <div className="box1">Cathedral Cove</div>
-          <div className="box2">Wellington cable car</div>
-          <div className="box3">Mt Cook</div>
-          <div className="box4">Milford</div>
+          {destination.map((data, index) => {
+            if (index < 15) {
+              return (
+                <ActivitiesList photoUrl={data.photoUrl} name={data.name} />
+              );
+            }
+          })}
         </div>
       </section>
       <section className="recommended">
         <h1>For Hikers</h1>
-        <div className="hikers">
-          <div className="destinationimg1">Franz Josef Glacier</div>
-          <div className="destinationimg2">Mt Taranaki</div>
-          <div className="destinationimg3">Tongariro Crossing </div>
-          <div className="destinationimg4">Hiking At Wanaka</div>
-          <div className="destinationimg5">Hump Ridge Track</div>
-          <div className="destinationimg6">Glenorchy</div>
-          <div className="destinationimg7">Taupo</div>
-          <div className="destinationimg8">Abel Tasman</div>
+        <div className="box">
+          {hiking.map((data, index) => {
+            if (index < 15) {
+              return (
+                <ActivitiesList photoUrl={data.photoUrl} name={data.name} />
+              );
+            }
+          })}
         </div>
       </section>
       <section className="activities">

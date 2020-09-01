@@ -57,33 +57,33 @@
       }
     }
   }
-  .populardestination {
-    h1 {
-      font-size: 25px;
-      // color: burlywood;
-    }
-    .box {
-      display: grid;
-      grid-template-rows: repeat(4, 1fr) !important;
-      .box1 {
-        background-color: yellow !important;
-        grid-column: 1/4 !important;
-        grid-row: 1 !important;
-      }
-      .box2 {
-        grid-column: 1/4 !important;
-        grid-row: 2 !important;
-      }
-      .box3 {
-        grid-column: 1/4 !important;
-        grid-row: 3 !important;
-      }
-      .box4 {
-        grid-column: 1/4 !important;
-        grid-row: 4 !important;
-      }
-    }
-  }
+  // .populardestination {
+  //   h1 {
+  //     font-size: 25px;
+  //     // color: burlywood;
+  //   }
+  //   .box {
+  //     display: grid;
+  //     grid-template-rows: repeat(4, 1fr) !important;
+  //     .box1 {
+  //       background-color: yellow !important;
+  //       grid-column: 1/4 !important;
+  //       grid-row: 1 !important;
+  //     }
+  //     .box2 {
+  //       grid-column: 1/4 !important;
+  //       grid-row: 2 !important;
+  //     }
+  //     .box3 {
+  //       grid-column: 1/4 !important;
+  //       grid-row: 3 !important;
+  //     }
+  //     .box4 {
+  //       grid-column: 1/4 !important;
+  //       grid-row: 4 !important;
+  //     }
+  //   }
+  // }
   .hikers {
     border: 2px solid rgb(121, 122, 73);
     grid-template-columns: 1fr !important;

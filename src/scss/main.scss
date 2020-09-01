@@ -272,105 +272,84 @@ footer {
     }
   }
 }
-.populardestination {
-  // display: grid;
-  justify-content: center;
-  text-align: center;
-  max-width: 80rem;
-  margin: 0 auto;
-  .box {
-    height: 100vh;
-    display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
-    margin-bottom: 100px;
-    // border: 2px solid rgb(121, 122, 73);
-    .box1 {
-      background: url("../img/cathe.jpg") center no-repeat;
-      background-size: cover;
-      grid-column: 1 / 3;
-      grid-row: 1/ 2;
-      color: white;
+.box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 300px;
+  margin-bottom: 100px;
+  .boxes {
+    background-color: $light;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      color: red;
+      transform: translate(0px, -15px);
+      box-shadow: rgba(0, 0, 0, 5) 5px 5px 8px;
+      img {
+        transition: 0.5s ease-in-out;
+        filter: grayscale(100%);
+      }
+      .name {
+        visibility: visible;
+        transition: 0.5s ease-in-out;
+        transform: translate(0, 0);
+      }
     }
-    .box2 {
-      background: url("../img/wellington.jpg") center no-repeat;
-      background-size: cover;
-      color: white;
+    .name {
+      position: absolute;
+      visibility: hidden;
+      color: $light;
+      background: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      transition: 0.5s ease-in-out;
+      transform: translate(-100%, -100%);
+      h5 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
-    .box3 {
-      background: url("../img/mtcook.jpg") center no-repeat;
-      background-size: cover;
-      background-color: rgb(126, 25, 25);
-      color: white;
-    }
-    .box4 {
-      background: url("../img/milford.jpg") center no-repeat;
-      background-size: cover;
-      color: white;
-      grid-column: 2/4;
+    .image {
+      width: 100%;
+      height: 100%;
+      .card-image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        // object-fit: fill;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
     }
   }
+}
+.populardestination {
+  justify-content: center;
+  text-align: center;
+  max-width: 90rem;
+  margin: 20px auto;
 }
 .recommended {
   justify-content: center;
   text-align: center;
   // display: grid;
-  max-width: 80rem;
+  max-width: 90rem;
   margin: 0 auto;
   height: 100%;
-  .hikers {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 300px 300px;
-    margin-bottom: 100px;
-    .destinationimg1 {
-      background: url("../img/FranzJosefGlacier.jpg") center no-repeat;
-      background-size: cover;
-      color: $light;
-      // grid-column: 1 / 3;
-      // grid-row: 1/ 2;
-    }
-    .destinationimg2 {
-      background: url("../img/mttaranaki.jpg") center no-repeat;
-      background-size: cover;
-      color: $light;
-    }
-    .destinationimg3 {
-      background: url("../img/tongariro.jpg") center no-repeat;
-      background-size: cover;
-      color: $light;
-    }
-    .destinationimg4 {
-      background: url("../img/wanaka.jpg") center no-repeat;
-      background-size: cover;
-      color: $light;
-    }
-    .destinationimg5 {
-      background: url("../img/hump.jpg") center no-repeat;
-      background-size: cover;
-      color: $light;
-    }
-    .destinationimg6 {
-      background: url("../img/glenorchy.jpg") center center no-repeat;
-      background-size: cover;
-      color: $light;
-    }
-    .destinationimg7 {
-      background: url("../img/taupo.jpg") center no-repeat;
-      background-size: cover;
-      color: $light;
-    }
-    .destinationimg8 {
-      background: url("../img/abeltasman.jpeg") center no-repeat;
-      background-size: cover;
-      color: $light;
-    }
-  }
 }
-// .searchsection {
-//   position: relative;
-// }
 
 .searchsection {
   // position: relative;

@@ -39,24 +39,6 @@
       .hamburger.closeham .line:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -5px);
         transition: all 0.5s ease-in; }
-  .populardestination h1 {
-    font-size: 25px; }
-  .populardestination .box {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr) !important; }
-    .populardestination .box .box1 {
-      background-color: yellow !important;
-      grid-column: 1/4 !important;
-      grid-row: 1 !important; }
-    .populardestination .box .box2 {
-      grid-column: 1/4 !important;
-      grid-row: 2 !important; }
-    .populardestination .box .box3 {
-      grid-column: 1/4 !important;
-      grid-row: 3 !important; }
-    .populardestination .box .box4 {
-      grid-column: 1/4 !important;
-      grid-row: 4 !important; }
   .hikers {
     border: 2px solid #797a49;
     grid-template-columns: 1fr !important;
