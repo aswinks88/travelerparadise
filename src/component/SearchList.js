@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import images from "../img/glenorchy.jpg";
+import React from "react";
+
 function SearchList(props) {
   return (
     <div className="searchcard1">

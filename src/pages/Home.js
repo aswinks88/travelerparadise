@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import ActivitiesList from "../component/ActivitiesListComponent";
 import { css } from "@emotion/core";
 import GridLoader from "react-spinners/GridLoader";
 import SearchForm from "../component/SearchForm";
 import axios from "axios";
-import { Spinner } from "react-bootstrap";
+
 export default function Home() {
   const override = css`
     display: block;
@@ -38,7 +38,6 @@ export default function Home() {
       .then(async (res) => {
         console.log(res.data);
         setDestination(await res.data);
-        // setLoading(false);
       })
       .then(() => {
         setLoading(false);
