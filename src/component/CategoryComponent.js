@@ -101,14 +101,3 @@ const clickoutsideConfig = {
   handleClickOutside: () => CategoryComponent.handleClickOutside,
 };
 export default onClickOutside(CategoryComponent, clickoutsideConfig);
-// <select className="category">
-//       <option defaultValue> Please select a category</option>
-//       <option value="arts">Arts & Entertainment</option>
-//       <option value="event">Event</option>
-//       <option value="food">Food</option>
-//       <option value="nightlife">Nightlife Spot</option>
-//       <option value="outdoors">Outdoors & Recreation</option>
-//       <option value="professional">Professional & Other Places</option>
-//       <option value="ss">Shop & Service</option>
-//       <option value="tt">Travel & Transport</option>
-//     </select>

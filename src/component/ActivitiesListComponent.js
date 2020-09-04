@@ -2,7 +2,7 @@ import React from "react";
 
 function ActivitiesListComponent(props) {
   return (
-    <div className="boxes">
+    <div key={props.key} className="boxes">
       <div className="image">
         {props.photoUrl !== "N/A" ? (
           <img className="card-img" src={props.photoUrl} alt="place" />
@@ -15,8 +15,12 @@ function ActivitiesListComponent(props) {
           />
         )}
       </div>
+
       <div className="name">
-        <h5>{props.name}</h5>
+        <a className="mapurl" href={props.url}>
+          {" "}
+          <h5> {props.name} </h5>
+        </a>
       </div>
     </div>
   );

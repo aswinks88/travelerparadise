@@ -302,6 +302,9 @@ footer {
         transform: translate(0, 0);
       }
     }
+    a {
+      color: $light;
+    }
     .name {
       position: absolute;
       visibility: hidden;
@@ -435,42 +438,13 @@ footer {
         }
       }
     }
-    .searchcard2 {
-      display: grid;
-      grid-template-columns: auto;
-      grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
-      text-align: left;
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
-      border-radius: 5px;
-      .image {
-        border-radius: 5px;
-        background: url("../img/hump.jpg") center no-repeat;
-        background-size: cover;
-      }
-    }
   }
 }
 
 .activities {
   justify-content: center;
   text-align: center;
-  max-width: 80rem;
+  max-width: 90rem;
   margin: 0 auto 100px;
   height: 100%;
-  // margin-bottom: 100px;
-  .funactivities {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 15px;
-    .desc {
-      text-align: justify;
-    }
-    .activitiesimg1 {
-      background: url("../img/sanddunes.jpg") no-repeat center center;
-      background-size: cover;
-      grid-column: 2/ 3;
-      grid-row: 1 / 3;
-    }
-  }
 }

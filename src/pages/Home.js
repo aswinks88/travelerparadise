@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ActivitiesList from "../component/ActivitiesListComponent";
-// import axios from "axios";
-// import Category from "../component/CategoryComponent";
-// import { Redirect } from "react-router-dom";
+import { css } from "@emotion/core";
+import GridLoader from "react-spinners/GridLoader";
 import SearchForm from "../component/SearchForm";
 import axios from "axios";
+import { Spinner } from "react-bootstrap";
 export default function Home() {
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
   const [latlong, setLatlong] = useState("");
   const [destination, setDestination] = useState([]);
   const [hiking, setHiking] = useState([]);
+  const [funActivities, setFunAct] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((res) => {
       setLatlong(res.coords.latitude + "," + res.coords.longitude);
@@ -17,25 +24,62 @@ export default function Home() {
   useEffect(() => {
     getLocation();
     console.log(latlong);
-    loadPopularDest();
-    loadHikingPlaces();
+    if (latlong === "") {
+      console.log("empty");
+    } else {
+      loadPopularDest();
+      loadHikingPlaces();
+      loadFunActivities();
+    }
   }, [latlong]);
-  const loadPopularDest = () => {
-    axios
+  const loadPopularDest = async () => {
+    await axios
       .post("http://localhost:5000/nearbyplaces", { ll: latlong })
-      .then((res) => {
+      .then(async (res) => {
         console.log(res.data);
-        setDestination(res.data);
+        setDestination(await res.data);
+        // setLoading(false);
+      })
+      .then(() => {
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
-  const loadHikingPlaces = () => {
-    axios
+  const loadHikingPlaces = async () => {
+    await axios
       .post("http://localhost:5000/forhikers", { ll: latlong })
       .then((res) => {
         console.log(res.data);
         setHiking(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
+  const loadFunActivities = async () => {
+    await axios
+      .post("http://localhost:5000/funactivities", { ll: latlong })
+      .then((res) => {
+        console.log(res.data);
+        setFunAct(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // const PlaceIdHandler = (placeId) => {
+  //   axios
+  //     .post("http://localhost:5000/fetchplacedetails", { placeId: placeId })
+  //     .then((res) => {
+  //       setUrl(res.data.result.url);
+  //       console.log(destination, url);
+  //     })
+  // .catch((err) => {
+  //   console.log(err);
+  // });
+  // };
   return (
     <div className="main">
       <section className="welcome">
@@ -46,46 +90,84 @@ export default function Home() {
       </section>
       <section className="populardestination">
         <h1>Popular Destination Near You</h1>
-        <div className="box">
-          {destination.map((data, index) => {
-            if (index < 15) {
-              return (
-                <ActivitiesList photoUrl={data.photoUrl} name={data.name} />
-              );
-            }
-          })}
-        </div>
+        {isLoading ? (
+          <GridLoader
+            css={override}
+            size={20}
+            color={"#f70058"}
+            loading={isLoading}
+          />
+        ) : (
+          <div className="box">
+            {destination.map((data, index) => {
+              if (index < 15) {
+                return (
+                  <ActivitiesList
+                    key={data.placeId}
+                    photoUrl={data.photoUrl}
+                    name={data.name}
+                    placeId={data.placeId}
+                    url={data.place_details.url}
+                  />
+                );
+              }
+            })}
+          </div>
+        )}
       </section>
       <section className="recommended">
-        <h1>For Hikers</h1>
-        <div className="box">
-          {hiking.map((data, index) => {
-            if (index < 15) {
-              return (
-                <ActivitiesList photoUrl={data.photoUrl} name={data.name} />
-              );
-            }
-          })}
-        </div>
+        <h1>Ready for Hiking?</h1>
+        {isLoading ? (
+          <GridLoader
+            css={override}
+            size={20}
+            color={"#f70058"}
+            loading={isLoading}
+          />
+        ) : (
+          <div className="box">
+            {hiking.map((data, index) => {
+              if (index < 15) {
+                return (
+                  <ActivitiesList
+                    key={data.placeId}
+                    photoUrl={data.photoUrl}
+                    name={data.name}
+                    placeId={data.placeId}
+                    url={data.place_details.url}
+                  />
+                );
+              }
+            })}
+          </div>
+        )}
       </section>
       <section className="activities">
         <h1>Fun Activities To Do</h1>
-
-        <div className="funactivities">
-          <div className="desc">
-            <p>
-              New Zealand's South and North Island is home to lot of
-              attractions. A country where you can dig your own hot water pool,
-              surf, ski and hike in the same day. The North Island is a volcanic
-              wonderland with active volcanoes, amazing beaches and lots of
-              wines. On the other hand, South Island is a land with glaciers,
-              lakes with beautiful backdrops and Aoraki mountains, New Zealand
-              highest mountain. Over all, its a place that never disappoints
-              anyone who seek an adeventure.
-            </p>
+        {isLoading ? (
+          <GridLoader
+            css={override}
+            size={20}
+            color={"#f70058"}
+            loading={isLoading}
+          />
+        ) : (
+          <div className="box">
+            {funActivities.map((data, index) => {
+              if (index < 15) {
+                return (
+                  <ActivitiesList
+                    key={data.placeId}
+                    photoUrl={data.photoUrl}
+                    name={data.name}
+                    placeId={data.placeId}
+                    url={data.place_details.url}
+                  />
+                );
+              }
+            })}
           </div>
-          <div className="activitiesimg1"></div>
-        </div>
+        )}
       </section>
     </div>
   );

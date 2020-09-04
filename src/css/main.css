@@ -588,6 +588,8 @@ footer {
         visibility: visible;
         transition: 0.5s ease-in-out;
         transform: translate(0, 0); }
+    .box .boxes a {
+      color: #fff; }
     .box .boxes .name {
       position: absolute;
       visibility: hidden;
@@ -693,33 +695,10 @@ footer {
           height: 100%;
           object-fit: cover;
           object-position: 50% 50%; }
-    .searchsection .searchlist .searchcard2 {
-      display: grid;
-      grid-template-columns: auto;
-      grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
-      text-align: left;
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 8px;
-      border-radius: 5px; }
-      .searchsection .searchlist .searchcard2 .image {
-        border-radius: 5px;
-        background: url("../img/hump.jpg") center no-repeat;
-        background-size: cover; }
 
 .activities {
   justify-content: center;
   text-align: center;
-  max-width: 80rem;
+  max-width: 90rem;
   margin: 0 auto 100px;
   height: 100%; }
-  .activities .funactivities {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 15px; }
-    .activities .funactivities .desc {
-      text-align: justify; }
-    .activities .funactivities .activitiesimg1 {
-      background: url("../img/sanddunes.jpg") no-repeat center center;
-      background-size: cover;
-      grid-column: 2/ 3;
-      grid-row: 1 / 3; }
