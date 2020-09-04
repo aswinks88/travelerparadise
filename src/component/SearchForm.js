@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Category from "../component/CategoryComponent";
 import { Redirect } from "react-router-dom";
@@ -11,6 +12,7 @@ function SearchForm(props) {
   const [items, setItems] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const history = useHistory();
   const onChange = (e) => {
     setQuery({ [e.target.name]: e.target.value });
   };
@@ -47,11 +49,11 @@ function SearchForm(props) {
           onChange={onChange}
           placeholder="eg: queenstown, tongariro etc..."
         />
-        <Category
+        {/* <Category
           title="Please select a category"
           multiSelect
           onChange={setOnchangeItem}
-        />
+        /> */}
       </div>
       <div className="btn-search">
         {!isLoading ? (
@@ -67,15 +69,16 @@ function SearchForm(props) {
               role="status"
               aria-hidden="true"
             />
-            <span className="sr-only">Loading...</span>
+            Loading...
           </button>
         )}
       </div>
-      {submit ? (
-        <Redirect to={{ pathname: "/search", state: { data: searchData } }} />
-      ) : (
-        ""
-      )}
+      {submit
+        ? history.push({
+            pathname: "/search",
+            state: { data: searchData },
+          })
+        : ""}
     </form>
   );
 }

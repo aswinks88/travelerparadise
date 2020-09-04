@@ -49,24 +49,31 @@
     flex-direction: column;
     align-items: flex-start; }
     .menu .navbar-links {
-      display: none;
+      visibility: hidden;
       flex-flow: column wrap;
-      align-items: center;
       justify-content: center;
       float: left;
       width: 100%;
       height: 100vh;
       overflow: hidden;
-      transition: all 0.5s ease-in; }
+      transition: all 0.5s ease-in;
+      position: absolute;
+      background-color: #131a2f;
+      transform: translate(0, -100%); }
       .menu .navbar-links ul {
+        position: absolute;
         flex-direction: column;
-        width: 100%; }
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
       .menu .navbar-links li {
         text-align: center; }
       .menu .navbar-links a {
         padding: 0.5rem 1rem; }
     .menu .navbar-links.active {
-      display: block; }
+      visibility: visible;
+      transform: translate(0, 0); }
   .hamburger {
     display: block !important;
     z-index: 5;
@@ -91,4 +98,26 @@
     grid-template-columns: 1fr !important; }
     .funactivities .activitiesimg1 {
       grid-column: 1/2 !important;
-      grid-row: 2 !important; } }
+      grid-row: 2 !important; }
+  .populardestination .box .boxes .name,
+  .recommended .box .boxes .name,
+  .activities .box .boxes .name {
+    visibility: visible;
+    height: 25%;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+    transform: translate(0, 0);
+    bottom: 0;
+    text-align: center; } }
+
+@media only screen and (min-width: 769px) and (max-width: 1170px) {
+  .populardestination .box .boxes .name,
+  .recommended .box .boxes .name,
+  .activities .box .boxes .name {
+    visibility: visible;
+    height: 25%;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+    transform: translate(0, 0);
+    bottom: 0;
+    text-align: center; } }

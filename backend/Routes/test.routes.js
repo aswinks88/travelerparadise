@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
 router.route("/").post(async (req, res) => {
-  // console.log(req.body.category);
   const data = [];
   const placeDetail = [];
   await axios
@@ -14,7 +13,6 @@ router.route("/").post(async (req, res) => {
     .then((response) => {
       for (let i = 0; i < response.data.results.length; i++) {
         if (!response.data.results[i].hasOwnProperty("photos")) {
-          // console.log(response.data.results[i].name);
           data.push({
             name: response.data.results[i].name,
             photoUrl: "N/A",
@@ -65,7 +63,6 @@ router.route("/").post(async (req, res) => {
 });
 
 router.route("/nearbyplaces").post(async (req, res) => {
-  console.log(req.body);
   const data = [];
   const placeDetail = [];
   await axios
@@ -104,7 +101,6 @@ router.route("/nearbyplaces").post(async (req, res) => {
           });
         }
       });
-      console.log(1, "for loop ends here");
     })
     .then(async () => {
       console.log(2, "for loop starts here");
@@ -120,22 +116,20 @@ router.route("/nearbyplaces").post(async (req, res) => {
             console.log(err.response.data);
           });
       }
-      console.log(2, "for loop ends here");
     })
     .catch((err) => {
       console.log(err.response);
     });
-  console.log(3, "map starts here");
+
   data.map((value, index) => {
     return (value["place_details"] = placeDetail[index]);
   });
-  console.log(3, "map ends here");
+
   console.log(5, data[0]);
   res.send(data);
 });
 
 router.route("/forhikers").post(async (req, res) => {
-  // console.log(req.body.ll);
   const data = [];
   const placeDetail = [];
   await axios
@@ -197,7 +191,6 @@ router.route("/forhikers").post(async (req, res) => {
   res.send(data);
 });
 router.route("/funactivities").post(async (req, res) => {
-  // console.log(req.body.ll);
   const data = [];
   const placeDetail = [];
   await axios

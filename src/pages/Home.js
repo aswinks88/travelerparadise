@@ -27,9 +27,9 @@ export default function Home() {
     if (latlong === "") {
       console.log("empty");
     } else {
-      loadPopularDest();
-      loadHikingPlaces();
-      loadFunActivities();
+      // loadPopularDest();
+      // loadHikingPlaces();
+      // loadFunActivities();
     }
   }, [latlong]);
   const loadPopularDest = async () => {
@@ -90,12 +90,15 @@ export default function Home() {
       <section className="populardestination">
         <h1>Popular Destination Near You</h1>
         {isLoading ? (
-          <GridLoader
-            css={override}
-            size={20}
-            color={"#f70058"}
-            loading={isLoading}
-          />
+          <p>
+            Loading your destination...
+            <GridLoader
+              css={override}
+              size={20}
+              color={"#f70058"}
+              loading={isLoading}
+            />
+          </p>
         ) : (
           <div className="box">
             {destination.map((data, index) => {
@@ -117,12 +120,15 @@ export default function Home() {
       <section className="recommended">
         <h1>Ready for Hiking?</h1>
         {isLoading ? (
-          <GridLoader
-            css={override}
-            size={20}
-            color={"#f70058"}
-            loading={isLoading}
-          />
+          <p>
+            Loading your next Hiking spots
+            <GridLoader
+              css={override}
+              size={20}
+              color={"#f70058"}
+              loading={isLoading}
+            />
+          </p>
         ) : (
           <div className="box">
             {hiking.map((data, index) => {
@@ -144,12 +150,15 @@ export default function Home() {
       <section className="activities">
         <h1>Fun Activities To Do</h1>
         {isLoading ? (
-          <GridLoader
-            css={override}
-            size={20}
-            color={"#f70058"}
-            loading={isLoading}
-          />
+          <p>
+            Loading your fun activities
+            <GridLoader
+              css={override}
+              size={20}
+              color={"#f70058"}
+              loading={isLoading}
+            />
+          </p>
         ) : (
           <div className="box">
             {funActivities.map((data, index) => {
