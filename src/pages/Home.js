@@ -81,7 +81,7 @@ export default function Home() {
   // };
   return (
     <div className="main">
-      <section className="welcome">
+      <section className="welcome" id="welcome">
         <div className="welcome-middle">
           <h1>Discover your next adventure</h1>
         </div>
@@ -118,7 +118,7 @@ export default function Home() {
         )}
       </section>
       <section className="recommended">
-        <h1>Ready for Hiking?</h1>
+        <h1>Hiking Near you</h1>
         {isLoading ? (
           <p>
             Loading Hiking spots

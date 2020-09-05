@@ -8,7 +8,10 @@
 *::after {
   box-sizing: border-box;
 }
-
+#root {
+  height: 100%;
+  position: relative;
+}
 html,
 body {
   height: 100%;
@@ -31,10 +34,10 @@ p {
 ul {
   list-style: none;
 }
-.content {
-  position: relative;
-  height: 100%;
-}
+// .content {
+//   position: relative;
+//   height: 100%;
+// }
 header {
   position: fixed;
   background-color: $dark;
@@ -57,11 +60,13 @@ footer {
   text-align: center;
   padding: 50px;
   // position: absolute;
-  // top: 0;
-  // bottom: 0;
+  bottom: 0;
   .footercontent {
     color: white;
   }
+}
+.main {
+  position: relative;
 }
 .menu {
   display: flex;
@@ -191,7 +196,7 @@ footer {
   display: flex;
   background: url("../img/queenstown.jpg") center center no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 85vh;
   flex-direction: column;
   .welcome-middle {
     text-align: center;
@@ -231,6 +236,11 @@ footer {
       margin: 25px;
       color: $light;
       text-decoration: none;
+      transition: 0.5s ease-out;
+      &:hover {
+        transition: 0.5s ease-out;
+        width: 200px;
+      }
     }
   }
 }
@@ -359,6 +369,11 @@ footer {
         width: 120px;
         border-radius: 5px;
         margin-left: 25px;
+        transition: 0.5s ease-out;
+        &:hover {
+          transition: 0.5s ease-out;
+          width: 200px;
+        }
       }
     }
   }
@@ -432,4 +447,7 @@ footer {
   max-width: 90rem;
   margin: 0 auto 100px;
   height: 100%;
+}
+.emptysection {
+  padding-bottom: 100px;
 }

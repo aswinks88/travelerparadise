@@ -49,9 +49,18 @@
     align-items: center; }
     .resultheading .searchbar input {
       width: 90%; }
-    .resultheading .searchbar button {
-      margin-top: 25px;
-      padding: 5px; } }
+  #footer {
+    padding: 1px; }
+    #footer h1 {
+      font-size: 35px; }
+    #footer p {
+      font-size: 10px; }
+  #welcome h1 {
+    font-size: 35px; }
+  .populardestination h1,
+  .recommended h1,
+  .activities h1 {
+    font-size: 35px; } }
 
 @media only screen and (max-width: 768px) {
   .menu {
@@ -118,13 +127,37 @@
     transform: translate(0, 0);
     bottom: 0;
     text-align: center; }
-  .resultheading .searchbar input {
-    width: 60% !important; } }
+  #searchresults h1 {
+    font-size: 35px; }
+  .resultheading #searchbar {
+    flex-direction: column;
+    height: 150px;
+    align-items: center; }
+    .resultheading #searchbar input {
+      width: 90%; }
+    .resultheading #searchbar button {
+      margin-top: 25px;
+      padding: 5px; }
+  #emptysection {
+    padding-bottom: 200px; }
+  #footer {
+    padding: 5px; }
+    #footer h1 {
+      font-size: 35px; }
+    #footer p {
+      font-size: 15px; } }
 
-@media only screen and (min-width: 568px) and (max-width: 823px) {
-  .welcome {
-    width: 100vw !important;
-    height: 160vh !important; } }
+@media only screen and (orientation: landscape) and (min-width: 568px) and (max-width: 823px) {
+  #welcome {
+    height: 100vw; }
+  #searchresults {
+    height: 50vw; }
+  #footer {
+    padding: 1px; }
+    #footer h1 {
+      font-size: 20px; }
+    #footer p {
+      font-size: 10px; } }
 
 @media only screen and (min-width: 769px) and (max-width: 1170px) {
   .populardestination .box .boxes .name,

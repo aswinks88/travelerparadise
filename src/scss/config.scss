@@ -19,7 +19,7 @@ $grid: minmax(1em, 10%) minmax(10rem, 22ch) minmax(10rem, 23ch) minmax(1em, 3fr)
   }
 }
 @mixin landScape {
-  @media only screen and (min-width: 568px) and (max-width: 823px) {
+  @media only screen and (orientation: landscape) and (min-width: 568px) and (max-width: 823px) {
     @content;
   }
 }

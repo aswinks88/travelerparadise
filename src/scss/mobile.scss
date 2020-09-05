@@ -72,10 +72,31 @@
       input {
         width: 90%;
       }
-      button {
-        margin-top: 25px;
-        padding: 5px;
-      }
+      // button {
+      //   margin-top: 25px;
+      //   padding: 5px;
+      // }
+    }
+  }
+  #footer {
+    padding: 1px;
+    h1 {
+      font-size: 35px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+  #welcome {
+    h1 {
+      font-size: 35px;
+    }
+  }
+  .populardestination,
+  .recommended,
+  .activities {
+    h1 {
+      font-size: 35px;
     }
   }
 }
@@ -175,18 +196,53 @@
       }
     }
   }
+  #searchresults {
+    h1 {
+      font-size: 35px;
+    }
+  }
   .resultheading {
-    .searchbar {
+    #searchbar {
+      flex-direction: column;
+      height: 150px;
+      align-items: center;
       input {
-        width: 60% !important;
+        width: 90%;
       }
+      button {
+        margin-top: 25px;
+        padding: 5px;
+      }
+    }
+  }
+  #emptysection {
+    padding-bottom: 200px;
+  }
+  #footer {
+    padding: 5px;
+    h1 {
+      font-size: 35px;
+    }
+    p {
+      font-size: 15px;
     }
   }
 }
 @include landScape {
-  .welcome {
-    width: 100vw !important;
-    height: 160vh !important;
+  #welcome {
+    height: 100vw;
+  }
+  #searchresults {
+    height: 50vw;
+  }
+  #footer {
+    padding: 1px;
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 10px;
+    }
   }
 }
 @include mediaLg {

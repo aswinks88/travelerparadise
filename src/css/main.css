@@ -50,9 +50,18 @@
     align-items: center; }
     .resultheading .searchbar input {
       width: 90%; }
-    .resultheading .searchbar button {
-      margin-top: 25px;
-      padding: 5px; } }
+  #footer {
+    padding: 1px; }
+    #footer h1 {
+      font-size: 35px; }
+    #footer p {
+      font-size: 10px; }
+  #welcome h1 {
+    font-size: 35px; }
+  .populardestination h1,
+  .recommended h1,
+  .activities h1 {
+    font-size: 35px; } }
 
 @media only screen and (max-width: 768px) {
   .menu {
@@ -119,13 +128,37 @@
     transform: translate(0, 0);
     bottom: 0;
     text-align: center; }
-  .resultheading .searchbar input {
-    width: 60% !important; } }
+  #searchresults h1 {
+    font-size: 35px; }
+  .resultheading #searchbar {
+    flex-direction: column;
+    height: 150px;
+    align-items: center; }
+    .resultheading #searchbar input {
+      width: 90%; }
+    .resultheading #searchbar button {
+      margin-top: 25px;
+      padding: 5px; }
+  #emptysection {
+    padding-bottom: 200px; }
+  #footer {
+    padding: 5px; }
+    #footer h1 {
+      font-size: 35px; }
+    #footer p {
+      font-size: 15px; } }
 
-@media only screen and (min-width: 568px) and (max-width: 823px) {
-  .welcome {
-    width: 100vw !important;
-    height: 160vh !important; } }
+@media only screen and (orientation: landscape) and (min-width: 568px) and (max-width: 823px) {
+  #welcome {
+    height: 100vw; }
+  #searchresults {
+    height: 50vw; }
+  #footer {
+    padding: 1px; }
+    #footer h1 {
+      font-size: 20px; }
+    #footer p {
+      font-size: 10px; } }
 
 @media only screen and (min-width: 769px) and (max-width: 1170px) {
   .populardestination .box .boxes .name,
@@ -414,6 +447,10 @@ template {
 *::after {
   box-sizing: border-box; }
 
+#root {
+  height: 100%;
+  position: relative; }
+
 html,
 body {
   height: 100%;
@@ -436,10 +473,6 @@ p {
 ul {
   list-style: none; }
 
-.content {
-  position: relative;
-  height: 100%; }
-
 header {
   position: fixed;
   background-color: #131a2f;
@@ -456,9 +489,13 @@ footer {
   background-color: #131a2f;
   width: 100%;
   text-align: center;
-  padding: 50px; }
+  padding: 50px;
+  bottom: 0; }
   footer .footercontent {
     color: white; }
+
+.main {
+  position: relative; }
 
 .menu {
   display: flex;
@@ -565,7 +602,7 @@ footer {
   display: flex;
   background: url("../img/queenstown.jpg") center center no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 85vh;
   flex-direction: column; }
   .welcome .welcome-middle {
     text-align: center; }
@@ -595,7 +632,11 @@ footer {
       text-align: center;
       margin: 25px;
       color: #fff;
-      text-decoration: none; }
+      text-decoration: none;
+      transition: 0.5s ease-out; }
+      .welcome .formsearch .btn-search button:hover {
+        transition: 0.5s ease-out;
+        width: 200px; }
 
 .box {
   display: grid;
@@ -703,7 +744,11 @@ footer {
         color: #fff;
         width: 120px;
         border-radius: 5px;
-        margin-left: 25px; }
+        margin-left: 25px;
+        transition: 0.5s ease-out; }
+        .searchsection .resultheading .searchbar button:hover {
+          transition: 0.5s ease-out;
+          width: 200px; }
   .searchsection .searchlist {
     display: grid;
     text-align: center;
@@ -758,3 +803,6 @@ footer {
   max-width: 90rem;
   margin: 0 auto 100px;
   height: 100%; }
+
+.emptysection {
+  padding-bottom: 100px; }

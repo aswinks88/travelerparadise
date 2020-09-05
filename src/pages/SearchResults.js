@@ -60,12 +60,12 @@ export default function SearchResults(props) {
   };
   return (
     <div className="searchsection">
-      <section className="searchresults">
+      <section className="searchresults" id="searchresults">
         <h1>Top Results</h1>
       </section>
       <section className="resultheading">
         {/* <h1>Top results</h1> */}
-        <div className="searchbar">
+        <div className="searchbar" id="searchbar">
           {/* <div className="sortby">Sortby: &nbsp;</div> */}
           {/* <select className="sortorder">
             <option value="popularity"> Popularity</option>
@@ -115,6 +115,7 @@ export default function SearchResults(props) {
             })
           : ""}
       </section>
+      <section className="emptysection" id="emptysection"></section>
     </div>
   );
 }
