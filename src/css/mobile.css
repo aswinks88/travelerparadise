@@ -42,7 +42,16 @@
   .hikers {
     border: 2px solid #797a49;
     grid-template-columns: 1fr !important;
-    grid-auto-rows: 300px; } }
+    grid-auto-rows: 300px; }
+  .resultheading .searchbar {
+    flex-direction: column;
+    height: 120px;
+    align-items: center; }
+    .resultheading .searchbar input {
+      width: 90%; }
+    .resultheading .searchbar button {
+      margin-top: 25px;
+      padding: 5px; } }
 
 @media only screen and (max-width: 768px) {
   .menu {
@@ -108,7 +117,14 @@
     transition: 0.5s ease-in-out;
     transform: translate(0, 0);
     bottom: 0;
-    text-align: center; } }
+    text-align: center; }
+  .resultheading .searchbar input {
+    width: 60% !important; } }
+
+@media only screen and (min-width: 568px) and (max-width: 823px) {
+  .welcome {
+    width: 100vw !important;
+    height: 160vh !important; } }
 
 @media only screen and (min-width: 769px) and (max-width: 1170px) {
   .populardestination .box .boxes .name,

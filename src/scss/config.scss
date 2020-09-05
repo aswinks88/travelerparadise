@@ -18,6 +18,11 @@ $grid: minmax(1em, 10%) minmax(10rem, 22ch) minmax(10rem, 23ch) minmax(1em, 3fr)
     @content;
   }
 }
+@mixin landScape {
+  @media only screen and (min-width: 568px) and (max-width: 823px) {
+    @content;
+  }
+}
 @mixin mediaLg {
   @media only screen and (min-width: 769px) and (max-width: 1170px) {
     @content;

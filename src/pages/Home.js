@@ -91,7 +91,7 @@ export default function Home() {
         <h1>Popular Destination Near You</h1>
         {isLoading ? (
           <p>
-            Loading your destination...
+            Loading destination...
             <GridLoader
               css={override}
               size={20}
@@ -121,7 +121,7 @@ export default function Home() {
         <h1>Ready for Hiking?</h1>
         {isLoading ? (
           <p>
-            Loading your next Hiking spots
+            Loading Hiking spots
             <GridLoader
               css={override}
               size={20}
@@ -151,7 +151,7 @@ export default function Home() {
         <h1>Fun Activities To Do</h1>
         {isLoading ? (
           <p>
-            Loading your fun activities
+            Loading fun activities
             <GridLoader
               css={override}
               size={20}

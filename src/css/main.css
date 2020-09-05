@@ -43,7 +43,16 @@
   .hikers {
     border: 2px solid #797a49;
     grid-template-columns: 1fr !important;
-    grid-auto-rows: 300px; } }
+    grid-auto-rows: 300px; }
+  .resultheading .searchbar {
+    flex-direction: column;
+    height: 120px;
+    align-items: center; }
+    .resultheading .searchbar input {
+      width: 90%; }
+    .resultheading .searchbar button {
+      margin-top: 25px;
+      padding: 5px; } }
 
 @media only screen and (max-width: 768px) {
   .menu {
@@ -109,7 +118,14 @@
     transition: 0.5s ease-in-out;
     transform: translate(0, 0);
     bottom: 0;
-    text-align: center; } }
+    text-align: center; }
+  .resultheading .searchbar input {
+    width: 60% !important; } }
+
+@media only screen and (min-width: 568px) and (max-width: 823px) {
+  .welcome {
+    width: 100vw !important;
+    height: 160vh !important; } }
 
 @media only screen and (min-width: 769px) and (max-width: 1170px) {
   .populardestination .box .boxes .name,
@@ -549,7 +565,7 @@ footer {
   display: flex;
   background: url("../img/queenstown.jpg") center center no-repeat;
   background-size: cover;
-  height: 75vh;
+  height: 100vh;
   flex-direction: column; }
   .welcome .welcome-middle {
     text-align: center; }
@@ -657,8 +673,8 @@ footer {
 .searchsection {
   height: 100%; }
   .searchsection .searchresults {
-    height: 100vh;
-    align-items: center;
+    height: 50vh;
+    text-align: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -672,6 +688,22 @@ footer {
     .searchsection .resultheading .filters {
       margin-top: 15px;
       display: inline-flex; }
+    .searchsection .resultheading .searchbar {
+      width: 100%;
+      margin-top: 15px;
+      display: inline-flex;
+      justify-content: center; }
+      .searchsection .resultheading .searchbar input {
+        padding: 10px;
+        width: 30%;
+        border: 2px solid #131a2f; }
+      .searchsection .resultheading .searchbar button {
+        border: 2px solid #131a2f;
+        background-color: #f70058;
+        color: #fff;
+        width: 120px;
+        border-radius: 5px;
+        margin-left: 25px; }
   .searchsection .searchlist {
     display: grid;
     text-align: center;

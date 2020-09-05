@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 router.route("/").post(async (req, res) => {
+  console.log(req.body.query.search);
   const data = [];
   const placeDetail = [];
   await axios
@@ -58,7 +59,6 @@ router.route("/").post(async (req, res) => {
   data.map((value, index) => {
     return (value["place_details"] = placeDetail[index]);
   });
-
   res.send(data);
 });
 
@@ -124,8 +124,6 @@ router.route("/nearbyplaces").post(async (req, res) => {
   data.map((value, index) => {
     return (value["place_details"] = placeDetail[index]);
   });
-
-  console.log(5, data[0]);
   res.send(data);
 });
 

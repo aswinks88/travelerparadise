@@ -52,6 +52,11 @@ export default function Header() {
               </a>
             </li>
             <li className="nav_list-item">
+              <a href="/search" className="nav__link">
+                Search
+              </a>
+            </li>
+            <li className="nav_list-item">
               <a href="/about" className="nav__link">
                 About
               </a>

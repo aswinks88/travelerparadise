@@ -63,6 +63,21 @@
     grid-template-columns: 1fr !important;
     grid-auto-rows: 300px;
   }
+  .resultheading {
+    .searchbar {
+      flex-direction: column;
+      height: 120px;
+      align-items: center;
+
+      input {
+        width: 90%;
+      }
+      button {
+        margin-top: 25px;
+        padding: 5px;
+      }
+    }
+  }
 }
 @include mediaMd {
   .menu {
@@ -160,9 +175,19 @@
       }
     }
   }
-  // .welcome {
-  //   width: 100vw;
-  // }
+  .resultheading {
+    .searchbar {
+      input {
+        width: 60% !important;
+      }
+    }
+  }
+}
+@include landScape {
+  .welcome {
+    width: 100vw !important;
+    height: 160vh !important;
+  }
 }
 @include mediaLg {
   .populardestination,
