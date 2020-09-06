@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "env-cmd -f .env.development react-scripts start",
-    "build": "env-cmd .env.production react-scripts build",
+    "build": "env-cmd -f .env.production react-scripts build",
     "test": "env-cmd .env.dev react-scripts test",
     "eject": "react-scripts eject",
     "sass": "node-sass -w src/scss/ -o src/css/ --recursive"
