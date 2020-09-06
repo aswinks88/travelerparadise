@@ -60,7 +60,9 @@
   .populardestination h1,
   .recommended h1,
   .activities h1 {
-    font-size: 35px; } }
+    font-size: 35px; }
+  #about {
+    height: 100%; } }
 
 @media only screen and (max-width: 768px) {
   .menu {
@@ -152,6 +154,8 @@
     height: 100vw; }
   #searchresults {
     height: 50vw; }
+  #about {
+    height: 100%; }
   #footer {
     padding: 1px; }
     #footer h1 {

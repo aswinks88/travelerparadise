@@ -99,6 +99,9 @@
       font-size: 35px;
     }
   }
+  #about {
+    height: 100%;
+  }
 }
 @include mediaMd {
   .menu {
@@ -234,6 +237,9 @@
   }
   #searchresults {
     height: 50vw;
+  }
+  #about {
+    height: 100%;
   }
   #footer {
     padding: 1px;

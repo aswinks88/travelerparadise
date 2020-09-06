@@ -62,7 +62,7 @@ export default function SearchResults(props) {
   return (
     <div className="searchsection">
       <section className="searchresults" id="searchresults">
-        <h1>Top Results</h1>
+        <h1>Search</h1>
       </section>
       <section className="resultheading">
         {/* <h1>Top results</h1> */}
