@@ -62,7 +62,10 @@ export default function Header() {
               </a>
             </li>
             <li className="nav_list-item">
-              <a href="/github" className="nav__link">
+              <a
+                href="https://github.com/aswinks88/travelerparadise"
+                className="nav__link"
+              >
                 Check this project on GitHub <i className="fab fa-github"></i>
               </a>
             </li>

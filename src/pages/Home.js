@@ -28,9 +28,9 @@ export default function Home() {
     if (latlong === "") {
       console.log("empty");
     } else {
-      // loadPopularDest();
-      // loadHikingPlaces();
-      // loadFunActivities();
+      loadPopularDest();
+      loadHikingPlaces();
+      loadFunActivities();
     }
   }, [latlong]);
   const loadPopularDest = async () => {
