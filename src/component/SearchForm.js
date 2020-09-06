@@ -29,7 +29,7 @@ function SearchForm(props) {
       category: items,
     };
     axios
-      .post("http://localhost:5000/", data)
+      .post(`${process.env.REACT_APP_PROD_URL}`, data)
       .then((res) => {
         setData(res.data);
         setSubmit(true);
