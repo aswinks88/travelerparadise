@@ -11,7 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/", route);
+app.use("/api/", route);
+app.use("/api/nearbyplaces", route);
+app.use("/api/forhikers", route);
+app.use("/api/funactivities", route);
 app.listen(port, () => {
   console.log(`server is running on port: http://localhost:${port}`);
 });
