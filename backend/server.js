@@ -1,7 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const route = require("./Routes/test.routes");
+const route = require("./Routes/base.routes");
+const destination = require("./Routes/destination.routes");
+const hiking = require("./Routes/hiking.routes");
+const fun = require("./Routes/fun.routes");
 // require("dotenv").config();
 const dotenv = require("dotenv");
 dotenv.config();
@@ -12,6 +15,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", route);
+app.use("/api", destination);
+app.use("/api", hiking);
+app.use("/api", fun);
 app.listen(port, () => {
   console.log(`server is running on port: http://localhost:${port}`);
 });
