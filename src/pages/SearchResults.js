@@ -46,7 +46,7 @@ export default function SearchResults(props) {
     };
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_PROD_URL}`, data)
+      .post(`${process.env.REACT_APP_PROD_URL}/api`, data)
       .then((res) => {
         // update history with the newly returned search results
         //this will preserve the state on page reload
