@@ -8,6 +8,7 @@
 # testing
 /coverage
 /src/keys.js
+/src/API_URL.js
 # production
 /build
 
@@ -17,6 +18,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+/.env.production
+/.env.development
 
 npm-debug.log*
 yarn-debug.log*

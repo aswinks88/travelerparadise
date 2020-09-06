@@ -4,7 +4,7 @@ import { css } from "@emotion/core";
 import GridLoader from "react-spinners/GridLoader";
 import SearchForm from "../component/SearchForm";
 import axios from "axios";
-
+import { Local_apiURL } from "../API_URL";
 export default function Home() {
   const override = css`
     display: block;
@@ -23,18 +23,19 @@ export default function Home() {
   };
   useEffect(() => {
     getLocation();
-    console.log(latlong);
+
+    console.log(process.env.REACT_APP_LOCAL_URL);
     if (latlong === "") {
       console.log("empty");
     } else {
-      // loadPopularDest();
-      // loadHikingPlaces();
-      // loadFunActivities();
+      loadPopularDest();
+      loadHikingPlaces();
+      loadFunActivities();
     }
   }, [latlong]);
   const loadPopularDest = async () => {
     await axios
-      .post("http://localhost:5000/nearbyplaces", { ll: latlong })
+      .post(`${process.env.REACT_APP_LOCAL_URL}/nearbyplaces`, { ll: latlong })
       .then(async (res) => {
         console.log(res.data);
         setDestination(await res.data);
@@ -48,7 +49,7 @@ export default function Home() {
   };
   const loadHikingPlaces = async () => {
     await axios
-      .post("http://localhost:5000/forhikers", { ll: latlong })
+      .post(`${process.env.REACT_APP_LOCAL_URL}/forhikers`, { ll: latlong })
       .then((res) => {
         console.log(res.data);
         setHiking(res.data);
@@ -59,7 +60,7 @@ export default function Home() {
   };
   const loadFunActivities = async () => {
     await axios
-      .post("http://localhost:5000/funactivities", { ll: latlong })
+      .post(`${process.env.REACT_APP_LOCAL_URL}/funactivities`, { ll: latlong })
       .then((res) => {
         console.log(res.data);
         setFunAct(res.data);
@@ -68,17 +69,7 @@ export default function Home() {
         console.log(err);
       });
   };
-  // const PlaceIdHandler = (placeId) => {
-  //   axios
-  //     .post("http://localhost:5000/fetchplacedetails", { placeId: placeId })
-  //     .then((res) => {
-  //       setUrl(res.data.result.url);
-  //       console.log(destination, url);
-  //     })
-  // .catch((err) => {
-  //   console.log(err);
-  // });
-  // };
+
   return (
     <div className="main">
       <section className="welcome" id="welcome">
