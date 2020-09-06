@@ -39,14 +39,14 @@ export default function SearchResults(props) {
     console.log(searchQuery);
   };
   const searchHandler = () => {
-    console.log(process.env.REACT_APP_LOCAL_URL);
+    console.log(process.env.REACT_APP_PROD_URL);
     const data = {
       // ll: props.location,
       query: searchQuery,
     };
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_LOCAL_URL}`, data)
+      .post(`${process.env.REACT_APP_PROD_URL}`, data)
       .then((res) => {
         // update history with the newly returned search results
         //this will preserve the state on page reload
