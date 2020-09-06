@@ -48,8 +48,8 @@ export default function SearchResults(props) {
     axios
       .post(`${process.env.REACT_APP_PROD_URL}`, data)
       .then((res) => {
-        // update history with the newly returned search results
-        //this will preserve the state on page reload
+        // we update the data in the state history with newly returned search results
+        //this will prevent from losing data on page reload
         props.history.push({ state: { data: res.data } });
       })
       .then(() => {
