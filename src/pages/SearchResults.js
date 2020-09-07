@@ -10,7 +10,6 @@ export default function SearchResults(props) {
   // const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [latlong, setLatlong] = useState("");
-  console.log(props.location);
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((res) => {
       setLatlong(res.coords.latitude + "," + res.coords.longitude);
@@ -25,6 +24,7 @@ export default function SearchResults(props) {
   };
   const searchHandler = () => {
     console.log(process.env.REACT_APP_PROD_URL);
+    console.log(latlong);
     const data = {
       ll: latlong,
       query: searchQuery,
