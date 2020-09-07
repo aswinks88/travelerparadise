@@ -38,6 +38,7 @@ router.route("/funactivities").all(async (req, res) => {
           });
         }
       });
+      console.log(3, data);
     })
     .then(async () => {
       for (let i = 0; i < data.length; i++) {

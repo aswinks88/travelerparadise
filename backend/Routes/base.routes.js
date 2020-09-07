@@ -38,7 +38,7 @@ router.route("/").post(async (req, res) => {
           });
         }
       }
-      console.log(data);
+      console.log(1, data);
     })
     .then(async () => {
       for (let i = 0; i < data.length; i++) {

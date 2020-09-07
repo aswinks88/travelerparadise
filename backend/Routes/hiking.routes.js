@@ -39,6 +39,7 @@ router.route("/forhikers").all(async (req, res) => {
           });
         }
       });
+      console.log(4, data);
     })
     .then(async () => {
       for (let i = 0; i < data.length; i++) {
