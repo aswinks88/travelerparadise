@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 router.route("/").all(async (req, res) => {
+  console.log("search is called");
   console.log(req.body.query.search);
   const data = [];
   const placeDetail = [];
