@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
-router.route("/nearbyplaces").all(async (req, res) => {
+router.route("/nearbyplaces").post(async (req, res) => {
   console.log("destination is called");
   const data = [];
   const placeDetail = [];

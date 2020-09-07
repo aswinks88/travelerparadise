@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
-router.route("/forhikers").all(async (req, res) => {
+router.route("/forhikers").post(async (req, res) => {
   console.log("hiking is called");
   const data = [];
   const placeDetail = [];

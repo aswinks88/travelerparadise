@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
-router.route("/funactivities").all(async (req, res) => {
+router.route("/funactivities").post(async (req, res) => {
   const data = [];
   const placeDetail = [];
   await axios
