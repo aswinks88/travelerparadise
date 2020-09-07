@@ -40,7 +40,7 @@ router.route("/nearbyplaces").all(async (req, res) => {
           });
         }
       });
-      console.log(2, data);
+      console.log(2, response.data);
     })
     .then(async () => {
       console.log(2, "for loop starts here");
