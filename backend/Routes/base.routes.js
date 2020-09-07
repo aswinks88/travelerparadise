@@ -38,6 +38,7 @@ router.route("/").all(async (req, res) => {
           });
         }
       }
+      console.log(data);
     })
     .then(async () => {
       for (let i = 0; i < data.length; i++) {
