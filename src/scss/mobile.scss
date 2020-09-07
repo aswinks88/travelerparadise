@@ -63,21 +63,21 @@
     grid-template-columns: 1fr !important;
     grid-auto-rows: 300px;
   }
-  .resultheading {
-    .searchbar {
-      flex-direction: column;
-      height: 120px;
-      align-items: center;
+  // .resultheading {
+  //   .searchbar {
+  //     flex-direction: column;
+  //     height: 120px;
+  //     align-items: center;
 
-      input {
-        width: 90%;
-      }
-      // button {
-      //   margin-top: 25px;
-      //   padding: 5px;
-      // }
-    }
-  }
+  //     input {
+  //       width: 90%;
+  //     }
+  //     // button {
+  //     //   margin-top: 25px;
+  //     //   padding: 5px;
+  //     // }
+  //   }
+  // }
   #footer {
     padding: 1px;
     h1 {
@@ -266,6 +266,21 @@
           bottom: 0;
           text-align: center;
         }
+      }
+    }
+  }
+  .resultheading {
+    .searchbar {
+      flex-direction: column;
+      height: 120px;
+      align-items: center;
+
+      input {
+        width: 90% !important;
+      }
+      button {
+        margin-top: 25px;
+        padding: 5px;
       }
     }
   }

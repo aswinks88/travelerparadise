@@ -77,6 +77,11 @@ export default function Home() {
       </section>
       <section className="populardestination">
         <h1>Popular Destination Near You</h1>
+        {destination.length === 0 ? (
+          <p>{destination.length} results found</p>
+        ) : (
+          ""
+        )}
         {isLoading ? (
           <p>
             Loading destination...
@@ -107,6 +112,7 @@ export default function Home() {
       </section>
       <section className="recommended">
         <h1>Hiking Near you</h1>
+        {hiking.length === 0 ? <p>{hiking.length} results found</p> : ""}
         {isLoading ? (
           <p>
             Loading Hiking spots
@@ -137,6 +143,11 @@ export default function Home() {
       </section>
       <section className="activities">
         <h1>Fun Activities To Do</h1>
+        {funActivities.length === 0 ? (
+          <p>{funActivities.length} results found</p>
+        ) : (
+          ""
+        )}
         {isLoading ? (
           <p>
             Loading fun activities

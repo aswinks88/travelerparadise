@@ -83,6 +83,18 @@ export default function SearchResults(props) {
           )}
         </div>
       </section>
+      <section className="results-return">
+        {props.location.state.data.length === 0 ? (
+          <p className="resultsfound">
+            {props.location.state.data.length} results found, please search with
+            a different keyword
+          </p>
+        ) : (
+          <p className="resultsfound">
+            {props.location.state.data.length} results found
+          </p>
+        )}
+      </section>
       <section className="searchlist">
         {props.location.state !== undefined
           ? props.location.state.data.map((data, index) => {
