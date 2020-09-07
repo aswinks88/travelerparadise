@@ -10,6 +10,7 @@ router.route("/").post(async (req, res) => {
       params: {
         query: req.body.query.search,
         key: process.env.GOOGLE_PLACE_API_KEY,
+        location: req.body.ll,
       },
     })
     .then((response) => {
