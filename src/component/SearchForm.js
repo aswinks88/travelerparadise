@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import Category from "../component/CategoryComponent";
-import { Redirect } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 function SearchForm(props) {
+  console.log(props.location);
   const [searchQuery, setQuery] = useState({
     search: "",
   });

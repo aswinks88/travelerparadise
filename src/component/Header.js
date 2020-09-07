@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import logo from "../img/logo.png";
 export default function Header() {
   const [showMenu, setMenu] = useState(false);

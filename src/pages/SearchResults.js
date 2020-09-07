@@ -3,45 +3,30 @@ import SearchList from "../component/SearchList";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
 export default function SearchResults(props) {
-  const [placeId, setPlaceId] = useState([]);
+  // const [placeId, setPlaceId] = useState([]);
   const [searchQuery, setQuery] = useState({
     search: "",
   });
   // const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const [latlong, setLatlong] = useState("");
+  console.log(props.location);
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition((res) => {
+      setLatlong(res.coords.latitude + "," + res.coords.longitude);
+    });
+  };
 
-  // const FetchIndividualPlaceDetails = () => {
-  //   if (props.location.state === undefined) {
-  //     return "";
-  //   }
-  //   props.history.location.state.data.map((placeid) => {
-  //     setPlaceId([...placeId, placeid.placeId]);
-  //   });
-  //   axios
-  //     .get(`http://localhost:5000/placedetails`, {
-  //       params: {
-  //         placeid: props.placeId,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.response);
-  //     });
-  //   console.log(placeId);
-  // };
-  // useEffect(() => {
-  //   FetchIndividualPlaceDetails();
-  // }, []);
+  useEffect(() => {
+    getLocation();
+  }, []);
   const onChange = (e) => {
     setQuery({ [e.target.name]: e.target.value });
-    console.log(searchQuery);
   };
   const searchHandler = () => {
     console.log(process.env.REACT_APP_PROD_URL);
     const data = {
-      // ll: props.location,
+      ll: latlong,
       query: searchQuery,
     };
     setLoading(true);
@@ -120,3 +105,25 @@ export default function SearchResults(props) {
     </div>
   );
 }
+
+// const FetchIndividualPlaceDetails = () => {
+//   if (props.location.state === undefined) {
+//     return "";
+//   }
+//   props.history.location.state.data.map((placeid) => {
+//     setPlaceId([...placeId, placeid.placeId]);
+//   });
+//   axios
+//     .get(`http://localhost:5000/placedetails`, {
+//       params: {
+//         placeid: props.placeId,
+//       },
+//     })
+//     .then((response) => {
+//       console.log(response.data);
+//     })
+//     .catch((err) => {
+//       console.log(err.response);
+//     });
+//   console.log(placeId);
+// };
