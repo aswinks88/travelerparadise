@@ -10,6 +10,7 @@ router.route("/forhikers").post(async (req, res) => {
         key: process.env.GOOGLE_PLACE_API_KEY,
         location: req.body.ll,
         radius: 20000,
+        type: "tourist_attraction",
         keyword: "Hiking near me",
       },
     })
