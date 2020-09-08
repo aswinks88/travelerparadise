@@ -5,14 +5,9 @@ router.route("/nearbyplaces").post(async (req, res) => {
   const data = [];
   const placeDetail = [];
   await axios
-    .get("https://maps.googleapis.com/maps/api/place/nearbysearch/json", {
-      params: {
-        key: process.env.GOOGLE_PLACE_API_KEY,
-        location: req.body.ll,
-        radius: 20000,
-        keyword: "popular destinations near me",
-      },
-    })
+    .get(
+      `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=popular%destinations%near%me&location=${req.body.ll}&radius=20000&key=${process.env.GOOGLE_PLACE_API_KEY}`
+    )
     .then((response) => {
       console.log(1, "for loop starts here");
       response.data.results.forEach((value, i) => {
@@ -73,3 +68,12 @@ router.route("/nearbyplaces").post(async (req, res) => {
 });
 
 module.exports = router;
+
+// , {
+//   params: {
+//     key: process.env.GOOGLE_PLACE_API_KEY,
+//     location: req.body.ll,
+//     radius: 20000,
+//     keyword: "popular destinations near me",
+//   },
+// }
