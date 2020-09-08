@@ -84,7 +84,9 @@ export default function SearchResults(props) {
         </div>
       </section>
       <section className="results-return">
-        {props.location.state.data.length === 0 ? (
+        {props.location.state === undefined ? (
+          <p className="resultsfound">Try this 'Sushi near me' </p>
+        ) : props.location.state.data.length === 0 ? (
           <p className="resultsfound">
             {props.location.state.data.length} results found, please search with
             a different keyword

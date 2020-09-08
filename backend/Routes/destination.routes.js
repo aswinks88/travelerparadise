@@ -40,6 +40,11 @@ router.route("/nearbyplaces").post(async (req, res) => {
           });
         }
       });
+      if (response.status === 200) {
+        console.log(response.status);
+      } else {
+        console.log(response.status);
+      }
       console.log(2, response.data);
     })
     .then(async () => {
