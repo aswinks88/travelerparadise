@@ -32,7 +32,7 @@ export default function Home() {
   }, [latlong]);
   const loadPopularDest = async () => {
     await axios
-      .post(`${process.env.REACT_APP_PROD_URL}/nearbyplaces`, { ll: latlong })
+      .post(`${process.env.REACT_APP_PROD_URL}nearbyplaces`, { ll: latlong })
       .then(async (res) => {
         console.log(res.data);
         setDestination(await res.data);
@@ -46,7 +46,7 @@ export default function Home() {
   };
   const loadHikingPlaces = async () => {
     await axios
-      .post(`${process.env.REACT_APP_PROD_URL}/forhikers`, { ll: latlong })
+      .post(`${process.env.REACT_APP_PROD_URL}forhikers`, { ll: latlong })
       .then((res) => {
         console.log(res.data);
         setHiking(res.data);
@@ -57,7 +57,7 @@ export default function Home() {
   };
   const loadFunActivities = async () => {
     await axios
-      .post(`${process.env.REACT_APP_PROD_URL}/funactivities`, { ll: latlong })
+      .post(`${process.env.REACT_APP_PROD_URL}funactivities`, { ll: latlong })
       .then((res) => {
         console.log(res.data);
         setFunAct(res.data);
