@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
 router.route("/").post(async (req, res) => {
-  console.log("search is called");
-  console.log(req.body.query.search);
   const data = [];
   const placeDetail = [];
   await axios
@@ -39,7 +37,6 @@ router.route("/").post(async (req, res) => {
           });
         }
       }
-      console.log(1, data);
     })
     .then(async () => {
       for (let i = 0; i < data.length; i++) {

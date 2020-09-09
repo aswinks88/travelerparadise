@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 router.route("/nearbyplaces").post(async (req, res) => {
-  console.log("destination is called");
+  console.log(req.body.ll);
   const data = [];
   const placeDetail = [];
   await axios
@@ -15,7 +15,6 @@ router.route("/nearbyplaces").post(async (req, res) => {
       },
     })
     .then((response) => {
-      console.log(1, "for loop starts here");
       response.data.results.forEach((value, i) => {
         if (!value.hasOwnProperty("photos")) {
           data.push({
@@ -41,15 +40,8 @@ router.route("/nearbyplaces").post(async (req, res) => {
           });
         }
       });
-      if (response.status === 200) {
-        console.log(response.status);
-      } else {
-        console.log(response.status);
-      }
-      console.log(2, response.data);
     })
     .then(async () => {
-      console.log(2, "for loop starts here");
       for (let i = 0; i < data.length; i++) {
         await axios
           .get(

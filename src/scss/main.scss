@@ -200,6 +200,12 @@ footer {
   flex-direction: column;
   .welcome-middle {
     text-align: center;
+    .current-location {
+      color: $light;
+      .fa-map-marker-alt {
+        color: $primary;
+      }
+    }
     h1 {
       font-size: 50px;
       color: white;

@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
 router.route("/forhikers").post(async (req, res) => {
-  console.log("hiking is called");
   const data = [];
   const placeDetail = [];
   await axios
@@ -40,7 +39,6 @@ router.route("/forhikers").post(async (req, res) => {
           });
         }
       });
-      console.log(4, data);
     })
     .then(async () => {
       for (let i = 0; i < data.length; i++) {

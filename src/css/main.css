@@ -613,6 +613,10 @@ footer {
   flex-direction: column; }
   .welcome .welcome-middle {
     text-align: center; }
+    .welcome .welcome-middle .current-location {
+      color: #fff; }
+      .welcome .welcome-middle .current-location .fa-map-marker-alt {
+        color: #f70058; }
     .welcome .welcome-middle h1 {
       font-size: 50px;
       color: white; }
